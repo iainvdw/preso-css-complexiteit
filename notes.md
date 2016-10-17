@@ -12,14 +12,14 @@
 * "Scoping"
 * [Ghehe](https://twitter.com/thomasfuchs/status/493790680397803521)
 
-## Complexity
+## Complexiteit
 
 Waar komt complexiteit in CSS vandaan?
 
-* Niet-generieke styling op elementen
-* Stijlen op ID's -> hogere specificity
+* Niet-generieke styling op elementen die niet op elke plek terug hoort te komen
 * Nesting -> hogere specifity
-* Unsetten / resetten van properties
+* Stijlen op ID's -> véél hogere specificity
+* Moeten unsetten / overriden van eerder ingestelde properties
 * Inconsistentie in ontwerp
 
 ## Hoe voorkom je complexiteit?
@@ -27,6 +27,9 @@ Waar komt complexiteit in CSS vandaan?
 * Gebruik sensible defaults voor zowel elementen als componenten.
 * Zo min mogelijk nesting.
 * Gebruik classes ipv ID's. Classes zijn specifiek genoeg.
+* Separation of concerns
+	* Splits layout gerelateerde zaken (grids, containers, etc.) van component gerelateerde zaken
+	* Maak stijling niet afhankelijk van plaatsing in een specifieke container, maar gebruik daarvoor kleinere, losse componenten waar mogelijk
 * Maak slim gebruik van `min-width(...)` en `max-width(...)`:
 	* Sensible defaults zonder media queries
 	* Styles voor kleinste schermen zonder media queries
@@ -53,6 +56,7 @@ Waar komt complexiteit in CSS vandaan?
 
 ## Performance
 
+### Hard stuff
 [Pagespeed insights](https://developers.google.com/speed/pagespeed/insights/)
 
 * Critical CSS inlinen
@@ -62,6 +66,8 @@ Waar komt complexiteit in CSS vandaan?
 	* Plaats inline in een `<style>`in de `<head>`
 	* Laad de rest (styles.css die ook de critical.css bevat) van de CSS asynchroon in via bv. [loadCSS](https://github.com/filamentgroup/loadCSS) -> Browser cache
 	* Plaats dan een cookie om bij de volgende page request de browser cache te benutten
+
+### Obvious stuff
 * Benut browser cache
 	* Stel een lange expiry date in
 	* Gebruik Etags
