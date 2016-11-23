@@ -8,8 +8,9 @@
 
 ## The bad bits
 
+* De cascade
+* Inheritance
 * Specificity
-* "Scoping"
 * [Ghehe](https://twitter.com/thomasfuchs/status/493790680397803521)
 
 ## Complexiteit
@@ -17,16 +18,17 @@
 Waar komt complexiteit in CSS vandaan?
 
 * Niet-generieke styling op elementen die niet op elke plek terug hoort te komen
-* Nesting -> hogere specifity
+* Nesting van selectors -> hogere specifity
 * Stijlen op ID's -> véél hogere specificity
 * Moeten unsetten / overriden van eerder ingestelde properties
 * Inconsistentie in ontwerp
+* De architectuur van CSS zelf
 
 ## Hoe voorkom je complexiteit?
 
 * Gebruik sensible defaults voor zowel elementen als componenten.
-* Zo min mogelijk nesting.
-* Gebruik classes ipv ID's. Classes zijn specifiek genoeg.
+* Zo min mogelijk nesting (of gewoon geen!).
+* Gebruik classes ipv ID's. Classes zijn specifiek genoeg. Zo niet, dan doe je iets fout ;)
 * Separation of concerns
 	* Splits layout gerelateerde zaken (grids, containers, etc.) van component gerelateerde zaken
 	* Maak stijling niet afhankelijk van plaatsing in een specifieke container, maar gebruik daarvoor kleinere, losse componenten waar mogelijk
@@ -36,6 +38,31 @@ Waar komt complexiteit in CSS vandaan?
 	* Styles voor grotere schermen in breakpoints met `min-width(...)`
 	* Scherm styles af die niet van toepassing zijn op grotere schermen met `max-width(...)` om unsetten / resetten te voorkomen
 
+## Methodologie
+
+* [Atomic Design](http://atomicdesign.bradfrost.com/)
+	* Create design systems, not pages
+	* Ontleed een "pagina" tot componenten
+	* Ontwerp die componenten en werk ze uit in HTML, CSS en JS
+	* Stel pagina's op obv die componenten
+	* **Bruggetje naar talk van Bram**
+* [OOCSS](https://github.com/stubbornella/oocss/wiki#two-main-principles-of-oocss) – Object-oriented CSS
+	* Separate structure from skin
+	* Separate containers from content
+* [BEM](https://en.bem.info/) – Block, element, modifier
+	* `.block__element--modifier`
+	* Voorkomt nesting
+	* Bevordert herbruikbaarheid van stukken code
+	* Maakt classes onafhankelijk van plaatsing
+* [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) – Inverted Triangle CSS
+	* Schrijf CSS in volgorde van specificity
+	* Schrijf nieuwe rules als uitbreiding op andere rules, niet als override
+	* Orden je stylesheets in volgorde van de inverted triangle. Begin met generieke brede selectors en werk naar steeds specifiekere CSS aan het einde.
+* [SMACSS](https://smacss.com/book/type-state)
+	* State modifiers – Status van een bepaald element (`is-...`, `has-...`)
+* [Composition over inheritance](http://cssguidelin.es/#composition-over-inheritance)
+	* Stel objecten samen uit kleine herbruikbare onderdelen ipv ze grote delen van hun eigenschappen over te laten erven
+	
 ## Componenten
 
 * Wat is de definitie van een component?
@@ -47,12 +74,6 @@ Waar komt complexiteit in CSS vandaan?
 	* HTML kan intact gelaten blijven om stijling van een component aan te passen
 	* Minder class clutter in de HTML
 
-## Methodologie
-
-* Atomic Design – Ontwerp componenten, geen pagina's
-* BEM – Block, element, modifier
-* ITCSS – Inverted Triangle CSS
-* State modifiers – Status van een bepaald element (`is-...`, `has-...`)
 
 ## Performance
 
