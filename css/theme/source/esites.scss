@@ -44,6 +44,16 @@ $linkColorHover: lighten( $linkColor, 20% );
 $selectionBackgroundColor: $red;
 $selectionColor: #fff;
 
+// Custom styling ------------------------------
+
+.slide-background {
+	&.bg-why {
+		background: url(/img/but-why.gif) 50% 50% no-repeat;
+		background-size: cover;
+	}
+}
+// ---------------------------------------------
+
 
 // Theme template ------------------------------
 @import "../template/theme";

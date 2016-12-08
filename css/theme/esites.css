@@ -10,6 +10,10 @@
  *
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic);
+.slide-background.bg-why {
+  background: url(/img/but-why.gif) 50% 50% no-repeat;
+  background-size: cover; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

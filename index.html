@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>CSS Structuur - Iain van der Wiel</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/esites.css">
@@ -14,13 +15,14 @@
 
 		<!-- Printing and PDF exports -->
 		<script>
-			var link = document.createElement( 'link' );
+			var link = document.createElement('link');
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
+			link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName('head')[0].appendChild(link);
 		</script>
 	</head>
+
 	<body>
 		<div class="reveal">
 			<div class="slides">
@@ -31,48 +33,83 @@
 						<small>Senior front-end developer @ E-sites &ndash; <a href="https://twitter.com/iain_vdw">@iain_vdw</a></small>
 					</p>
 					<aside class="notes">
-						Introductie<br />
-						Onderwerp, naam, functie, social, etc.
+						Introductie<br /> Onderwerp, naam, functie, social, etc.
 					</aside>
 				</section>
 				<section>
-					<h2>Topics</h2>
-					<ul>
-						<li>The good bits</li>
-						<li>The bad bits</li>
-						<li>Complexiteit</li>
-						<li>Componenten</li>
-					</ul>
+					<h2>CSS schrijven<br>is makkelijk</h2>
+				</section>
+				<section>
+					<h2><b>Goede</b><br> CSS schrijven<br> is moeilijk</h2>
+				</section>
+				<section class="bg-why">
 					<aside class="notes">
-						Topics:<br />
 						<ul>
-							<li>The good bits</li>
-							<li>The bad bits</li>
-							<li>Complexiteit</li>
-							<li>Componenten</li>
+							<li>Maar waarom?</li>
+							<li>En wat is nou goede CSS?</li>
+							<li>Onderhoudbaar</li>
+							<li>Schaalbaar</li>
+							<li>Uitbreidbaar</li>
+							<li>CSS heeft wat 'eigenaardigheden'</li>
 						</ul>
 					</aside>
 				</section>
 				<section>
-					<h2>The good bits</h2>
-					<ul>
-						<li>De cascade</li>
-						<li>Inheritance</li>
-						<li>Specificity</li>
-					</ul>
+					<h2>Cascade</h2>
+					<aside class="notes">
+						<ul>
+							<li>Bepaalt welke properties uit welke stylesheets toegepast worden</li>
+							<li>Verschillende bronnen (UA, user, author)</li>
+							<li>@keyframes</li>
+							<li>!important</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
-					<h2>De cascade</h2>
-					<ul>
-						<li>Wat is de cascade?</li>
-						<li>Wat wordt er toegepast?</li>
-					</ul>
+					<h2>Specificity</h2>
+					<aside class="notes">
+						<ul>
+							<li>Gewicht per selector</li>
+							<li>IDs &gt; classes &gt; elements</li>
+							<li>Hoge specificteit kan problemen opleveren in onderhoud en doorontwikkeling</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
-					<h2>The bad bits</h2>
-					<ul>
-						<li>Scoping</li>
-					</ul>
+					<h2>Inheritance</h2>
+					<aside class="notes">
+						<ul>
+							<li>Overerving van parent elements</li>
+							<li>Afhankelijk van plaatsing in HTML</li>
+							<li>Maar niet alles wordt overgeërfd</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Source order</h2>
+					<aside class="notes">
+						<ul>
+							<li>Volgorde van selectors in je stylesheet heeft invloed op styling</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Scoping</h2>
+					<aside class="notes">
+						<ul>
+							<li>CSS is globaal</li>
+							<li>CSS valt niet uniek toe te passen op 1 element</li>
+							<li>Maar zo is CSS bedoeld</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Hoe kunnen we hier beter mee omgaan?</h2>
+					<aside class="notes">
+						<ul>
+							<li>Note</li>
+						</ul>
+					</aside>
 				</section>
 			</div>
 		</div>
@@ -86,13 +123,22 @@
 				history: true,
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+				dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				}, {
+					src: 'plugin/markdown/markdown.js'
+				}, {
+					src: 'plugin/notes/notes.js',
+					async: true
+				}, {
+					src: 'plugin/highlight/highlight.js',
+					async: true,
+					callback: function() {
+						hljs.initHighlightingOnLoad();
+					}
+				}]
 			});
 		</script>
 	</body>
+
 </html>
