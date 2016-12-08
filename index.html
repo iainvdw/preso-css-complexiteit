@@ -40,7 +40,7 @@
 					<h2>CSS schrijven<br>is makkelijk</h2>
 				</section>
 				<section>
-					<h2><b>Goede</b><br> CSS schrijven<br> is moeilijk</h2>
+					<h2><b>Goede</b><br> CSS schrijven<br> is complex</h2>
 				</section>
 				<section class="bg-why">
 					<aside class="notes">
@@ -50,8 +50,16 @@
 							<li>Onderhoudbaar</li>
 							<li>Schaalbaar</li>
 							<li>Uitbreidbaar</li>
-							<li>CSS heeft wat 'eigenaardigheden'</li>
 						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Eigenaardigheden<br> van CSS</h2>
+					<aside class="notes">
+						<li>Cascade</li>
+						<li>Inheritance</li>
+						<li>Specifity</li>
+						<li>Source order</li>
 					</aside>
 				</section>
 				<section>
@@ -104,12 +112,58 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Hoe kunnen we hier beter mee omgaan?</h2>
+					<h3>Waar komt complexiteit<br> in CSS vandaan?</h3>
+					<ul>
+						<li>Stijling op plekken waar <br>je het niet wilt hebben</li>
+						<li>Het moeten overriden van <br>eerder ingestelde properties</li>
+						<li>Te hoge specificty</li>
+						<li>Inconsistentie in ontwerp</li>
+					</ul>
 					<aside class="notes">
-						<ul>
-							<li>Note</li>
-						</ul>
 					</aside>
+				</section>
+				<section>
+					<h2>Halp?!</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Hoe voorkomen we dit?</h3>
+					<ul>
+						<li>Media queries om styling 'af te schermen'</li>
+						<li>Sensible defaults voor elementen en componenten</li>
+						<li>Gebruik classes, geen ID's</li>
+						<li>Niet of nauwelijks selectors nesten</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>Maar ook...</h2>
+					<p>CSS methodieken als:</p>
+					<ul>
+						<li>BEM</li>
+						<li>ITCSS</li>
+						<li>OOCSS</li>
+						<li>OO Mixins</li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>BEM</h2>
+					<p>Block, Element, Modifier</p>
+					<pre class="css"><code>
+.block { ... }
+.block__element { ... }
+.block__element--modifier { ... }
+					</code></pre>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>BEM</h2>
+					
 				</section>
 			</div>
 		</div>
@@ -124,10 +178,6 @@
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [{
-					src: 'plugin/markdown/marked.js'
-				}, {
-					src: 'plugin/markdown/markdown.js'
-				}, {
 					src: 'plugin/notes/notes.js',
 					async: true
 				}, {
