@@ -10,9 +10,19 @@
  *
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic);
-.slide-background.bg-why {
-  background: url(/img/but-why.gif) 50% 50% no-repeat;
+.slide-background {
+  background: 50% 50% no-repeat;
   background-size: cover; }
+  .slide-background.bg-why {
+    background-size: cover;
+    background-image: url(/img/but-why.gif); }
+  .slide-background.bg-nonono {
+    background-size: contain;
+    background-image: url(/img/no.gif); }
+  .slide-background.bg-disgusting {
+    background-image: url(/img/do-not-want.gif); }
+  .slide-background.bg-ieuw {
+    background-image: url(/img/ieuw.gif); }
 
 /*********************************************
  * GLOBAL STYLES

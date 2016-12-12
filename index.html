@@ -116,8 +116,8 @@
 					<ul>
 						<li>Stijling op plekken waar <br>je het niet wilt hebben</li>
 						<li>Het moeten overriden van <br>eerder ingestelde properties</li>
-						<li>Te hoge specificty</li>
-						<li>Inconsistentie in ontwerp</li>
+						<li>Te hoge specificity in selectors</li>
+						<li>Inconsistenties in designs</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -130,8 +130,8 @@
 				<section>
 					<h3>Hoe voorkomen we dit?</h3>
 					<ul>
-						<li>Media queries om styling 'af te schermen'</li>
 						<li>Sensible defaults voor elementen en componenten</li>
+						<li>Media queries om styling 'af te schermen'</li>
 						<li>Gebruik classes, geen ID's</li>
 						<li>Niet of nauwelijks selectors nesten</li>
 					</ul>
@@ -144,8 +144,7 @@
 					<ul>
 						<li>BEM</li>
 						<li>ITCSS</li>
-						<li>OOCSS</li>
-						<li>OO Mixins</li>
+						<li>OOCSS - Mixin style</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -161,9 +160,109 @@
 					<aside class="notes">
 					</aside>
 				</section>
+				<section class="bg-disgusting">
+				</section>
+				<section class="bg-ieuw">
+				</section>
+				<section class="bg-nonono">
+				</section>
 				<section>
-					<h2>BEM</h2>
-					
+					<h2>Wat is BEM?</h2>
+					<ul>
+						<li>Scheidt je pagina in componenten</li>
+						<li>De componenten bestaan uit Blocks en Elements</li>
+						<li>Blocks zijn containers</li>
+						<li>Elements zijn children</li>
+						<li>Directe relatie tussen Block en Element in class name</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Waarom BEM?</h2>
+					<ul>
+						<li>Forceert je tot nadenken over unieke componenten en relaties tussen elementen</li>
+						<li>Uniforme naamgeving over hele codebase</li>
+						<li>Relaties tussen elementen afleiden uit HTML</li>
+						<li>Niet tot nauwelijks nesten selectors</li>
+						<li>Uitermate geschikt voor doorontwikkeling op lange termijn</li>
+					</ul>
+				</section>
+				<section>
+					<h2>ITCSS</h2>
+					<p>Inverted Triangle CSS</p>
+				</section>
+				<section>
+					<h2>Wat is ITCSS?</h2>
+					<ul>
+						<li>Dicteert source order</li>
+						<li>Daarmee dicteert het ook volgorde van specificiteit</li>
+						<li>Voorkomt verspringen door je stylesheet door sepcificiteit</li>
+						<li>Goed bestand tegen source order aanpassingen</li>
+					</ul>
+				</section>
+				<section>
+					<h2>ITCSS - source order</h2>
+					<img src="img/itcss.jpg" alt="">
+				</section>
+				<section>
+					<h2>ITCSS - structuur</h2>
+					<pre><code>css/
+├── settings/
+│   ├── colours.scss
+│   ├── grid.scss
+│   └── typography.scss
+├── tools/
+│   ├── functions.scss
+│   └── mixins.scss
+├── generic/
+│   └── normalize/
+├── base/
+│   ├── forms.scss
+│   └── typography.scss
+├── objects/
+│   ├── media.scss
+│   └── buttons.scss
+├── components/
+│   ├── nav.scss
+│   └── article-list.scss
+└── trumps/
+	└── helpers.scss</code></pre>
+				</section>
+				<section>
+					<h2>ITCSS - voor</h2>
+					<img src="img/itcss-style-jumping.jpg" alt="">
+				</section>
+				<section>
+					<h2>ITCSS - Specifity graph</h2>
+					<img src="img/itcss-spec-graph-before.jpg" alt="">
+				</section>
+				<section>
+					<h2>ITCSS - na</h2>
+					<img src="img/itcss-style-ordering.jpg" alt="">
+				</section>
+				<section>
+					<h2>ITCSS - Specifity graph</h2>
+					<img src="img/itcss-spec-graph-after.jpg" alt="">
+				</section>
+				<section>
+					<h2>Waarom ITCSS?</h2>
+					<ul>
+						<li>Voorkomt problemen met source order</li>
+						<li>Verbetert gemak onderhoudbaarheid <br>en doorontwikkeling</li>
+						<li>Aanmoedigen tot nadenken scheiding <br>objects en components</li>
+					</ul>
+				</section>
+				<section>
+					<h2>OOCSS</h2>
+					<ul>
+						<li>Separate structure from skin</li>
+						<li>Separate containers from content</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Waarom OOCSS?</h2>
+					<ul>
+						<li></li>
+					</ul>
 				</section>
 			</div>
 		</div>
@@ -177,16 +276,20 @@
 				history: true,
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [{
-					src: 'plugin/notes/notes.js',
-					async: true
-				}, {
-					src: 'plugin/highlight/highlight.js',
-					async: true,
-					callback: function() {
-						hljs.initHighlightingOnLoad();
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{
+						src: 'plugin/notes/notes.js',
+						async: true
+					}, {
+						src: 'plugin/highlight/highlight.js',
+						async: true,
+						callback: function() {
+							hljs.initHighlightingOnLoad();
+						}
 					}
-				}]
+				]
 			});
 		</script>
 	</body>

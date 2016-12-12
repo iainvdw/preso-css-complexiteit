@@ -47,9 +47,25 @@ $selectionColor: #fff;
 // Custom styling ------------------------------
 
 .slide-background {
+	background: 50% 50% no-repeat;
+	background-size: cover;
+
 	&.bg-why {
-		background: url(/img/but-why.gif) 50% 50% no-repeat;
 		background-size: cover;
+		background-image: url(/img/but-why.gif) ;
+	}
+
+	&.bg-nonono {
+		background-size: contain;
+		background-image: url(/img/no.gif);
+	}
+
+	&.bg-disgusting {
+		background-image: url(/img/do-not-want.gif);
+	}
+
+	&.bg-ieuw {
+		background-image: url(/img/ieuw.gif);
 	}
 }
 // ---------------------------------------------
