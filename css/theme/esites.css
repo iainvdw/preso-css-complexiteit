@@ -15,14 +15,22 @@
   background-size: cover; }
   .slide-background.bg-why {
     background-size: cover;
-    background-image: url(/img/but-why.gif); }
+    background-image: url(/img/but-why-2.gif); }
   .slide-background.bg-nonono {
     background-size: contain;
     background-image: url(/img/no.gif); }
+  .slide-background.bg-puzzle {
+    background-size: contain;
+    background-image: url(/img/css.gif); }
   .slide-background.bg-disgusting {
     background-image: url(/img/do-not-want.gif); }
   .slide-background.bg-ieuw {
     background-image: url(/img/ieuw.gif); }
+
+.reveal .profile-link {
+  display: inline-block;
+  padding: 10px;
+  color: #fff; }
 
 /*********************************************
  * GLOBAL STYLES
@@ -223,7 +231,7 @@ body {
  *********************************************/
 .reveal a {
   color: #f4004d;
-  text-decoration: none;
+  text-decoration: underline;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
@@ -242,7 +250,6 @@ body {
  *********************************************/
 .reveal section img {
   margin: 15px 0px;
-  background: rgba(255, 255, 255, 0.12);
   border: 4px solid #eee;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
@@ -251,6 +258,9 @@ body {
   box-shadow: none; }
 
 .reveal a img {
+  margin: 0;
+  border: 0;
+  box-shadow: 0;
   -webkit-transition: all .15s linear;
   -moz-transition: all .15s linear;
   transition: all .15s linear; }

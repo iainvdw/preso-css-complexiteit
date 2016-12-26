@@ -30,7 +30,18 @@
 					<h1>CSS structuur</h1>
 					<p>
 						Iain van der Wiel<br />
-						<small>Senior front-end developer @ E-sites &ndash; <a href="https://twitter.com/iain_vdw">@iain_vdw</a></small>
+						<small>
+							Senior front-end developer @ E-sites
+							<br>
+							<a href="https://twitter.com/iain_vdw" class="profile-link">
+								<img src="img/twitter.svg" alt="" width="24" height="24">
+								@iain_vdw
+							</a>
+							<a href="https://fronteers.slack.com/" class="profile-link">
+								<img src="img/slack.svg" alt="" width="24" height="24">
+								@iejun
+							</a>
+						</small>
 					</p>
 					<aside class="notes">
 						Introductie<br /> Onderwerp, naam, functie, social, etc.
@@ -53,9 +64,21 @@
 						</ul>
 					</aside>
 				</section>
+				<section class="bg-puzzle">
+					<aside class="notes">
+						<ul>
+							<li>Maar waarom?</li>
+							<li>En wat is nou goede CSS?</li>
+							<li>Onderhoudbaar</li>
+							<li>Schaalbaar</li>
+							<li>Uitbreidbaar</li>
+						</ul>
+					</aside>
+				</section>
 				<section>
 					<h2>Eigenaardigheden<br> van CSS</h2>
 					<aside class="notes">
+						<li>Ontworpen in 1996, 20 jaar oud</li>
 						<li>Cascade</li>
 						<li>Inheritance</li>
 						<li>Specifity</li>
@@ -112,15 +135,25 @@
 					</aside>
 				</section>
 				<section>
-					<h3>Waar komt complexiteit<br> in CSS vandaan?</h3>
+					<h3>Waar herken je complexiteit in CSS aan?</h3>
 					<ul>
 						<li>Stijling op plekken waar <br>je het niet wilt hebben</li>
 						<li>Het moeten overriden van <br>eerder ingestelde properties</li>
 						<li>Te hoge specificity in selectors</li>
-						<li>Inconsistenties in designs</li>
+						<li>Veel variaties moeten maken van bepaalde UI patterns</li>
 					</ul>
 					<aside class="notes">
+						<ul>
+							<li>Door te generieke selectors met te specifieke styling</li>
+							<li>Door verkeerd gebruik van media queries</li>
+							<li>Lange complexe specifieke selectors</li>
+							<li>Veel variaties die nét afwijken op een paar plekken</li>
+						</ul>
 					</aside>
+				</section>
+				<section>
+					<img src="img/knops.veel-knops.png" alt="">
+					<a href="https://www.smashingmagazine.com/atomic-design-workflow/">Smashing Magazine - Atomic Workflow</a>
 				</section>
 				<section>
 					<h2>Halp?!</h2>
@@ -134,6 +167,7 @@
 						<li>Media queries om styling 'af te schermen'</li>
 						<li>Gebruik classes, geen ID's</li>
 						<li>Niet of nauwelijks selectors nesten</li>
+						<li>Overleg met de designer over consistentie</li>
 					</ul>
 					<aside class="notes">
 					</aside>
@@ -153,16 +187,14 @@
 					<h2>BEM</h2>
 					<p>Block, Element, Modifier</p>
 					<pre class="css"><code>
-.block { ... }
-.block__element { ... }
-.block__element--modifier { ... }
+.article-list { ... }
+.article-list__item { ... }
+.article-list__item--highlighted { ... }
 					</code></pre>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section class="bg-disgusting">
-				</section>
-				<section class="bg-ieuw">
 				</section>
 				<section class="bg-nonono">
 				</section>
@@ -179,7 +211,7 @@
 				<section>
 					<h2>Waarom BEM?</h2>
 					<ul>
-						<li>Forceert je tot nadenken over unieke componenten en relaties tussen elementen</li>
+						<li>Moedigt aan tot nadenken over unieke componenten en relaties tussen elementen</li>
 						<li>Uniforme naamgeving over hele codebase</li>
 						<li>Relaties tussen elementen afleiden uit HTML</li>
 						<li>Niet tot nauwelijks nesten selectors</li>
@@ -195,7 +227,7 @@
 					<ul>
 						<li>Dicteert source order</li>
 						<li>Daarmee dicteert het ook volgorde van specificiteit</li>
-						<li>Voorkomt verspringen door je stylesheet door sepcificiteit</li>
+						<li>Voorkomt verspringen door je stylesheet door spec 	ificiteit</li>
 						<li>Goed bestand tegen source order aanpassingen</li>
 					</ul>
 				</section>
@@ -214,6 +246,8 @@
 │   ├── functions.scss
 │   └── mixins.scss
 ├── generic/
+│   └── bourbon/
+│   └── neat/
 │   └── normalize/
 ├── base/
 │   ├── forms.scss
@@ -225,7 +259,7 @@
 │   ├── nav.scss
 │   └── article-list.scss
 └── trumps/
-	└── helpers.scss</code></pre>
+    └── helpers.scss</code></pre>
 				</section>
 				<section>
 					<h2>ITCSS - voor</h2>
@@ -259,7 +293,30 @@
 					</ul>
 				</section>
 				<section>
-					<h2>Waarom OOCSS?</h2>
+					<h2>Separate structure from skin</h2>
+					<ul>
+						<li>Trek visuele (font, kleur, border) los van structuur (display, margin, padding)</li>
+						<li>Stel componenten samen op basis van deze abstracties</li>
+						<li>Visuele abstracties kunnen gebruikt worden als modifiers bovenop structuur</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Single responsibility principle</li>
+							<li>Separation of concerns</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Separate containers from content</h2>
+					<ul>
+						<li>Zorg dat styling niet afhankelijk is <br>van de locatie in je HTML</li>
+						<li>Houdt elementen zonder class hetzelfde en elementen met class krijgen de stijling</li>
+						<li>Bevordert hergebruik van classes in je project</li>
+						<li>Zorgt ervoor dat je later geen properties hoeft te <br>unsetten op het moment dat je de styling toch niet wilt</li>
+					</ul>
+				</section>
+				<section>
+					<h2>OOCSS - Mixin style</h2>
 					<ul>
 						<li></li>
 					</ul>

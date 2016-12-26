@@ -52,12 +52,17 @@ $selectionColor: #fff;
 
 	&.bg-why {
 		background-size: cover;
-		background-image: url(/img/but-why.gif) ;
+		background-image: url(/img/but-why-2.gif) ;
 	}
 
 	&.bg-nonono {
 		background-size: contain;
 		background-image: url(/img/no.gif);
+	}
+
+	&.bg-puzzle {
+		background-size: contain;
+		background-image: url(/img/css.gif);
 	}
 
 	&.bg-disgusting {
@@ -67,6 +72,12 @@ $selectionColor: #fff;
 	&.bg-ieuw {
 		background-image: url(/img/ieuw.gif);
 	}
+}
+
+.reveal .profile-link {
+	display: inline-block;
+	padding: 10px;
+	color: #fff;
 }
 // ---------------------------------------------
 
