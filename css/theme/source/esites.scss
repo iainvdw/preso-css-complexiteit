@@ -15,10 +15,6 @@
 @import "../template/settings";
 // ---------------------------------------------
 
-// Include theme-specific fonts
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic);
-
 // Colors used in the theme
 $red: #f4004d;
 $coal: #222;
@@ -43,6 +39,9 @@ $linkColorHover: lighten( $linkColor, 20% );
 // Text selection
 $selectionBackgroundColor: $red;
 $selectionColor: #fff;
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic);
 
 // Custom styling ------------------------------
 

@@ -51,27 +51,22 @@
 					<h2>CSS schrijven<br>is makkelijk</h2>
 				</section>
 				<section>
-					<h2><b>Goede</b><br> CSS schrijven<br> is complex</h2>
+					<h2>Goede CSS <br>schrijven is complex</h2>
 				</section>
 				<section class="bg-why">
 					<aside class="notes">
 						<ul>
 							<li>Maar waarom?</li>
 							<li>En wat is nou goede CSS?</li>
-							<li>Onderhoudbaar</li>
-							<li>Schaalbaar</li>
-							<li>Uitbreidbaar</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="bg-puzzle">
 					<aside class="notes">
 						<ul>
-							<li>Maar waarom?</li>
-							<li>En wat is nou goede CSS?</li>
-							<li>Onderhoudbaar</li>
-							<li>Schaalbaar</li>
-							<li>Uitbreidbaar</li>
+							<li>Iedereen vast wel in deze situatie geweest</li>
+							<li>Pas op 1 plek CSS aan en op andere plekken valt er iets om</li>
+							<li>Waar ligt dat aan?</li>
 						</ul>
 					</aside>
 				</section>
@@ -90,9 +85,7 @@
 					<aside class="notes">
 						<ul>
 							<li>Bepaalt welke properties uit welke stylesheets toegepast worden</li>
-							<li>Verschillende bronnen (UA, user, author)</li>
-							<li>@keyframes</li>
-							<li>!important</li>
+							<li>Verschillende bronnen (UA, developer, bezoeker)</li>
 						</ul>
 					</aside>
 				</section>
@@ -101,7 +94,7 @@
 					<aside class="notes">
 						<ul>
 							<li>Gewicht per selector</li>
-							<li>IDs &gt; classes &gt; elements</li>
+							<li>Inline &gt; IDs &gt; classes &gt; elements</li>
 							<li>Hoge specificteit kan problemen opleveren in onderhoud en doorontwikkeling</li>
 						</ul>
 					</aside>
@@ -124,7 +117,7 @@
 						</ul>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Scoping</h2>
 					<aside class="notes">
 						<ul>
@@ -133,83 +126,204 @@
 							<li>Maar zo is CSS bedoeld</li>
 						</ul>
 					</aside>
+				</section> -->
+				<section>
+					<h2>Waaraan herken<br> je complexiteit?</h2>
 				</section>
 				<section>
-					<h3>Waar herken je complexiteit in CSS aan?</h3>
-					<ul>
-						<li>Stijling op plekken waar <br>je het niet wilt hebben</li>
-						<li>Het moeten overriden van <br>eerder ingestelde properties</li>
-						<li>Te hoge specificity in selectors</li>
-						<li>Veel variaties moeten maken van bepaalde UI patterns</li>
-					</ul>
+					<img src="img/halp.gif" alt="">
+					<br>
+					<small>* verplicht kattenplaatje</small>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h3>Ongewenste stijling</h3>
+					<pre class="css"><code>// Slecht
+div ul li a { font-weight: bold; }
+
+// Beter
+.list-link { font-weight: bold; }</code></pre>
 					<aside class="notes">
 						<ul>
 							<li>Door te generieke selectors met te specifieke styling</li>
-							<li>Door verkeerd gebruik van media queries</li>
-							<li>Lange complexe specifieke selectors</li>
-							<li>Veel variaties die nét afwijken op een paar plekken</li>
+							<li>Sensible defaults voor elementen en componenten</li>
 						</ul>
 					</aside>
 				</section>
 				<section>
+					<h3>Resetten van properties</h3>
+					<pre class="css"><code>/**
+ * Responsive table
+ */
+// Slecht
+td { display: block; }
+
+@media screen and ( min-width: 640px ) {
+    td { display: table-cell; }
+}
+
+// Beter
+@media screen and ( max-width: 640px ) {
+    td { display: block; }
+}</code></pre>
+
+					<aside class="notes">
+						<ul>
+							<li>Door verkeerd gebruik van media queries</li>
+							<li>Media queries om styling 'af te schermen'</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h3>Te hoge specificity</h3>
+					<pre class="css"><code>// Slecht
+#product-list .product h3 a { font-weight: bold; }
+
+// Beter
+.product-title-link { font-weight: bold; }</code></pre>
+
+					<aside class="notes">
+						<ul>
+							<li>Lange complexe specifieke selectors</li>
+							<li>Gebruik classes, geen ID's</li>
+							<li>Niet of nauwelijks selectors nesten</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h3>Veel variaties van UI patterns</h3>
 					<img src="img/knops.veel-knops.png" alt="">
-					<a href="https://www.smashingmagazine.com/atomic-design-workflow/">Smashing Magazine - Atomic Workflow</a>
+					<small>Image credit: <a href="https://www.smashingmagazine.com/atomic-design-workflow/">Smashing Magazine - Atomic Workflow</a></small>
+
+					<aside class="notes">
+						<ul>
+							<li>Veel variaties die nét afwijken op een paar plekken</li>
+							<li>Overleg met de designer over consistentie</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
-					<h2>Halp?!</h2>
+					<h3>Maar ook...</h3>
+					<p>CSS Components met behulp van:</p>
+					<p><b>ITCSS</b> — <b>BEM</b> — <b>OOCSS (+ mixins)</b></p>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
-					<h3>Hoe voorkomen we dit?</h3>
+					<h3>ITCSS</h3>
+					<p>Inverted Triangle CSS</p>
+					<img src="img/itcss.jpg" alt="">
+				</section>
+				<section>
+					<h3>Wat is ITCSS?</h3>
 					<ul>
-						<li>Sensible defaults voor elementen en componenten</li>
-						<li>Media queries om styling 'af te schermen'</li>
-						<li>Gebruik classes, geen ID's</li>
-						<li>Niet of nauwelijks selectors nesten</li>
-						<li>Overleg met de designer over consistentie</li>
+						<li>Dicteert source order</li>
+						<li>Volgorde o.b.v. specificiteit</li>
+						<li>Voorkomt verspringen door je<br> stylesheet door specificiteit</li>
+						<li>Goed bestand tegen <br>source order aanpassingen</li>
 					</ul>
-					<aside class="notes">
-					</aside>
 				</section>
 				<section>
-					<h2>Maar ook...</h2>
-					<p>CSS methodieken als:</p>
+					<h3>ITCSS - structuur</h3>
+					<pre><code class="nohighlight">css/
+├── settings/
+│   ├── colours.scss
+│   └── grid.scss
+├── tools/
+│   ├── functions.scss
+│   └── mixins.scss
+├── generic/
+│   └── normalize/
+├── base/
+│   ├── forms.scss
+│   └── typography.scss
+├── objects/
+│   ├── media.scss
+│   └── grid.scss
+├── components/
+│   ├── main-nav.scss
+│   └── article-list.scss
+└── trumps/
+    └── helpers.scss</code></pre>
+				</section>
+				<section>
+					<h3>ITCSS - voor</h3>
+					<img src="img/itcss-style-jumping.jpg" alt="" style="float: left; width: 45%;">
+					<img src="img/itcss-spec-graph-before.jpg" alt="" style="float: right; width: 45%;">
+				</section>
+				<section>
+					<h3>ITCSS - na</h3>
+					<img src="img/itcss-style-ordering.jpg" alt="" style="float: left; width: 45%;">
+					<img src="img/itcss-spec-graph-after.jpg" alt="" style="float: right; width: 45%;">
+				</section>
+				<section>
+					<h3>Waarom ITCSS?</h3>
 					<ul>
-						<li>BEM</li>
-						<li>ITCSS</li>
-						<li>OOCSS - Mixin style</li>
+						<li>Vermindert problemen met <br>source order en specificity</li>
+						<li>Verbetert gemak onderhoud <br>en doorontwikkeling</li>
+						<li>Moedigt aan tot nadenken <br>scheiding objects en components</li>
 					</ul>
-					<aside class="notes">
-					</aside>
 				</section>
 				<section>
-					<h2>BEM</h2>
-					<p>Block, Element, Modifier</p>
-					<pre class="css"><code>
-.article-list { ... }
-.article-list__item { ... }
-.article-list__item--highlighted { ... }
-					</code></pre>
+					<h3>BEM - Block, Element, Modifier</h3>
+					<pre class="css"><code>/**
+  Product item component
+ */
+// Block
+.product { ... }
+
+// Elements
+.product__title { ... }
+.product__image { ... }
+
+// Modifiers
+.product--highlighted { ... }
+.product__thumb--large { ... }</code></pre>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section class="bg-disgusting">
 				</section>
 				<section class="bg-nonono">
+					<aside class="notes">
+						<ul>
+							<li>Veelgehoorde opmerkingen:</li>
+							<li>Lelijk</li>
+							<li>Te lange classnames</li>
+							<li>Dubbele underscores en dashes in 1 classname</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
-					<h2>Wat is BEM?</h2>
-					<ul>
-						<li>Scheidt je pagina in componenten</li>
-						<li>De componenten bestaan uit Blocks en Elements</li>
-						<li>Blocks zijn containers</li>
-						<li>Elements zijn children</li>
-						<li>Directe relatie tussen Block en Element in class name</li>
-					</ul>
+					<h3>Blocks, Elements, Modifiers</h3>
+					<pre class="html"><code><article class="product product--highlighted">
+  <h1 class="product__title">
+    Productnaam
+  </h1>
+  <p class="product__description">
+    Beschrijving van product
+  </p>
+  <p class="product__price">
+    € 42,-
+  </p>
+  <button class="product__add-to-cart">
+    Voeg toe aan winkelwagen
+  </button>
+</article></code></pre>
+					<aside class="notes">
+						<ul>
+							<li>Blocks zijn containers, het startpunt en afgrenzing van een component</li>
+							<li>Denk aan Blocks als Lego blokjes, meerdere Blocks bij elkaar vormen een groter geheel</li>
+							<li>Elements zijn children van Blocks</li>
+							<li>Modifiers zijn toepasbaar op Blocks en Elements</li>
+							<li>Modifiers zijn lichte varianten in presentatie</li>
+							<li>Classnames zijn uniek en alleen voor 1 component</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
-					<h2>Waarom BEM?</h2>
+					<h3>Waarom BEM?</h3>
 					<ul>
 						<li>Moedigt aan tot nadenken over unieke componenten en relaties tussen elementen</li>
 						<li>Uniforme naamgeving over hele codebase</li>
@@ -219,83 +333,20 @@
 					</ul>
 				</section>
 				<section>
-					<h2>ITCSS</h2>
-					<p>Inverted Triangle CSS</p>
+					<h3>OOCSS</h3>
+					<p>Object-oriented CSS</p>
 				</section>
 				<section>
-					<h2>Wat is ITCSS?</h2>
-					<ul>
-						<li>Dicteert source order</li>
-						<li>Daarmee dicteert het ook volgorde van specificiteit</li>
-						<li>Voorkomt verspringen door je stylesheet door spec 	ificiteit</li>
-						<li>Goed bestand tegen source order aanpassingen</li>
-					</ul>
-				</section>
-				<section>
-					<h2>ITCSS - source order</h2>
-					<img src="img/itcss.jpg" alt="">
-				</section>
-				<section>
-					<h2>ITCSS - structuur</h2>
-					<pre><code>css/
-├── settings/
-│   ├── colours.scss
-│   ├── grid.scss
-│   └── typography.scss
-├── tools/
-│   ├── functions.scss
-│   └── mixins.scss
-├── generic/
-│   └── bourbon/
-│   └── neat/
-│   └── normalize/
-├── base/
-│   ├── forms.scss
-│   └── typography.scss
-├── objects/
-│   ├── media.scss
-│   └── buttons.scss
-├── components/
-│   ├── nav.scss
-│   └── article-list.scss
-└── trumps/
-    └── helpers.scss</code></pre>
-				</section>
-				<section>
-					<h2>ITCSS - voor</h2>
-					<img src="img/itcss-style-jumping.jpg" alt="">
-				</section>
-				<section>
-					<h2>ITCSS - Specifity graph</h2>
-					<img src="img/itcss-spec-graph-before.jpg" alt="">
-				</section>
-				<section>
-					<h2>ITCSS - na</h2>
-					<img src="img/itcss-style-ordering.jpg" alt="">
-				</section>
-				<section>
-					<h2>ITCSS - Specifity graph</h2>
-					<img src="img/itcss-spec-graph-after.jpg" alt="">
-				</section>
-				<section>
-					<h2>Waarom ITCSS?</h2>
-					<ul>
-						<li>Voorkomt problemen met source order</li>
-						<li>Verbetert gemak onderhoudbaarheid <br>en doorontwikkeling</li>
-						<li>Aanmoedigen tot nadenken scheiding <br>objects en components</li>
-					</ul>
-				</section>
-				<section>
-					<h2>OOCSS</h2>
-					<ul>
+					<h3>OOCSS — principes</h3>
+					<ol>
 						<li>Separate structure from skin</li>
 						<li>Separate containers from content</li>
-					</ul>
+					</ol>
 				</section>
 				<section>
-					<h2>Separate structure from skin</h2>
+					<h3>Separate structure from skin</h3>
 					<ul>
-						<li>Trek visuele (font, kleur, border) los van structuur (display, margin, padding)</li>
+						<li>Trek visuele properties (font, color, border) los van structuur (display, margin, padding)</li>
 						<li>Stel componenten samen op basis van deze abstracties</li>
 						<li>Visuele abstracties kunnen gebruikt worden als modifiers bovenop structuur</li>
 					</ul>
@@ -307,7 +358,7 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Separate containers from content</h2>
+					<h3>Separate containers from content</h3>
 					<ul>
 						<li>Zorg dat styling niet afhankelijk is <br>van de locatie in je HTML</li>
 						<li>Houdt elementen zonder class hetzelfde en elementen met class krijgen de stijling</li>
@@ -316,9 +367,22 @@
 					</ul>
 				</section>
 				<section>
-					<h2>OOCSS - Mixin style</h2>
+					<h3>OOCSS Mixins</h3>
 					<ul>
-						<li></li>
+						<li>Verplaats losse OOCSS classes naar mixins</li>
+						<li>Stel classes samen obv deze mixins</li>
+						<li>Houdt je HTML en CSS stricter gescheiden, minder tot geen class clutter</li>
+						<li>Geen meerdere classes nodig, alle styling zit in 1 class</li>
+						<li>Geeft je de mogelijkheid beschrijvende namen te geven aan je class ipv generieke namen als <code>.btn.btn-primary.btn-large</code></li>
+					</ul>
+				</section>
+				<section>
+					<h3>OOCSS Mixins<br>extra voordelen</h3>
+					<ul>
+						<li>Alle styling zit in 1 selector</li>
+						<li>Gzip maakt korte metten met gedupliceerde properties, output is zelfs kleiner dan via @extend</li>
+						<li>Simpliciteit van output is vele malen hoger</li>
+						<li>Ongebruikte mixins genereren ook geen output meer</li>
 					</ul>
 				</section>
 			</div>
@@ -350,5 +414,4 @@
 			});
 		</script>
 	</body>
-
 </html>

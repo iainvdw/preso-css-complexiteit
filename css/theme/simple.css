@@ -1,53 +1,28 @@
 /**
- * Blood theme for reveal.js
- * Author: Walther http://github.com/Walther
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
  *
- * Designed to be used with highlight.js theme
- * "monokai_sublime.css" available from
- * https://github.com/isagalaev/highlight.js/
- *
- * For other themes, change $codeBackground accordingly.
- *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic);
-.slide-background {
-  background: 50% 50% no-repeat;
-  background-size: cover; }
-  .slide-background.bg-why {
-    background-size: cover;
-    background-image: url(/img/but-why-2.gif); }
-  .slide-background.bg-nonono {
-    background-size: contain;
-    background-image: url(/img/no.gif); }
-  .slide-background.bg-puzzle {
-    background-size: contain;
-    background-image: url(/img/css.gif); }
-  .slide-background.bg-disgusting {
-    background-image: url(/img/do-not-want.gif); }
-  .slide-background.bg-ieuw {
-    background-image: url(/img/ieuw.gif); }
-
-.reveal .profile-link {
-  display: inline-block;
-  padding: 10px;
-  color: #fff; }
-
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #222;
-  background-color: #222; }
+  background: #fff;
+  background-color: #fff; }
 
 .reveal {
-  font-family: OpenSans, "sans-serif";
+  font-family: "Lato", sans-serif;
   font-size: 36px;
   font-weight: normal;
-  color: #eee; }
+  color: #000; }
 
 ::selection {
   color: #fff;
-  background: #f4004d;
+  background: rgba(0, 0, 0, 0.99);
   text-shadow: none; }
 
 .reveal .slides > section,
@@ -66,7 +41,7 @@ body {
 .reveal h6 {
   color: #f4004d;
   background: #ddd;
-  font-family: OpenSans, "sans-serif";
+  font-family: "News Cycle", Impact, sans-serif;
   font-weight: bold;
   line-height: 1.2;
   letter-spacing: normal;
@@ -75,11 +50,11 @@ body {
   border-bottom: .1em solid #f4004d;
   padding: .2em 6em;
   transform: rotate(-2deg);
-  text-transform: uppercase;
+  text-transform: none;
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3.25em; }
+  font-size: 3.77em; }
 
 .reveal h2 {
   font-size: 2.11em; }
@@ -235,27 +210,27 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #f4004d;
+  color: #00008B;
   text-decoration: underline;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #ff5b8f;
+  color: #0000f1;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #a80035; }
+  background: #00003f; }
 
 /*********************************************
  * IMAGES
  *********************************************/
 .reveal section img {
   margin: 15px 0px;
-  border: 4px solid #eee;
+  border: 4px solid #000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal section img.plain {
@@ -272,7 +247,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #f4004d;
+  border-color: #00008B;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
@@ -280,31 +255,31 @@ body {
  *********************************************/
 .reveal .controls .navigate-left,
 .reveal .controls .navigate-left.enabled {
-  border-right-color: #f4004d; }
+  border-right-color: #00008B; }
 
 .reveal .controls .navigate-right,
 .reveal .controls .navigate-right.enabled {
-  border-left-color: #f4004d; }
+  border-left-color: #00008B; }
 
 .reveal .controls .navigate-up,
 .reveal .controls .navigate-up.enabled {
-  border-bottom-color: #f4004d; }
+  border-bottom-color: #00008B; }
 
 .reveal .controls .navigate-down,
 .reveal .controls .navigate-down.enabled {
-  border-top-color: #f4004d; }
+  border-top-color: #00008B; }
 
 .reveal .controls .navigate-left.enabled:hover {
-  border-right-color: #ff5b8f; }
+  border-right-color: #0000f1; }
 
 .reveal .controls .navigate-right.enabled:hover {
-  border-left-color: #ff5b8f; }
+  border-left-color: #0000f1; }
 
 .reveal .controls .navigate-up.enabled:hover {
-  border-bottom-color: #ff5b8f; }
+  border-bottom-color: #0000f1; }
 
 .reveal .controls .navigate-down.enabled:hover {
-  border-top-color: #ff5b8f; }
+  border-top-color: #0000f1; }
 
 /*********************************************
  * PROGRESS BAR
@@ -313,7 +288,7 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #f4004d;
+  background: #00008B;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }

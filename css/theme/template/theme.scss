@@ -38,16 +38,20 @@ body {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-	margin: $headingMargin;
-	color: $headingColor;
+	color: #f4004d;
+	background: #ddd;
 
 	font-family: $headingFont;
-	font-weight: $headingFontWeight;
+	font-weight: bold;
 	line-height: $headingLineHeight;
 	letter-spacing: $headingLetterSpacing;
 
+	margin: .5em -6em;
+	border-top: .1em solid #f4004d;
+	border-bottom: .1em solid #f4004d;
+	padding: .2em 6em;
+	transform: rotate(-2deg);
 	text-transform: $headingTextTransform;
-	text-shadow: $headingTextShadow;
 
 	word-wrap: break-word;
 }
@@ -154,19 +158,17 @@ body {
 }
 
 .reveal pre {
-	display: block;
+	display: flex;
+	justify-content: center;
 	position: relative;
-	width: 90%;
 	margin: $blockMargin auto;
 
 	text-align: left;
-	font-size: 0.55em;
+	font-size: .67em;
 	font-family: monospace;
 	line-height: 1.2em;
 
 	word-wrap: break-word;
-
-	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
 }
 .reveal code {
 	font-family: monospace;
@@ -176,8 +178,10 @@ body {
 	display: block;
 	padding: 5px;
 	overflow: auto;
-	max-height: 400px;
+	max-height: 450px;
 	word-wrap: normal;
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+	background: rgba(255,255,255,0.1);
 }
 
 .reveal table {
