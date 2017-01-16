@@ -139,10 +139,10 @@
 				</section>
 				<section>
 					<h3>Ongewenste stijling</h3>
-					<pre class="css"><code>// Slecht
+					<pre class="css"><code>/* Slecht */
 div ul li a { font-weight: bold; }
 
-// Beter
+/* Beter */
 .list-link { font-weight: bold; }</code></pre>
 					<aside class="notes">
 						<ul>
@@ -156,14 +156,14 @@ div ul li a { font-weight: bold; }
 					<pre class="css"><code>/**
  * Responsive table
  */
-// Slecht
+/* Slecht */
 td { display: block; }
 
 @media screen and ( min-width: 640px ) {
     td { display: table-cell; }
 }
 
-// Beter
+/* Beter */
 @media screen and ( max-width: 640px ) {
     td { display: block; }
 }</code></pre>
@@ -177,10 +177,10 @@ td { display: block; }
 				</section>
 				<section>
 					<h3>Te hoge specificity</h3>
-					<pre class="css"><code>// Slecht
+					<pre class="css"><code>/* Slecht */
 #product-list .product h3 a { font-weight: bold; }
 
-// Beter
+/* Beter */
 .product-title-link { font-weight: bold; }</code></pre>
 
 					<aside class="notes">
@@ -204,8 +204,8 @@ td { display: block; }
 					</aside>
 				</section>
 				<section>
-					<h3>Maar ook...</h3>
-					<p>CSS Components met behulp van:</p>
+					<h3>CSS Components</h3>
+					<p>met behulp van:</p>
 					<p><b>ITCSS</b> — <b>BEM</b> — <b>OOCSS (+ mixins)</b></p>
 					<aside class="notes">
 					</aside>
@@ -268,18 +268,18 @@ td { display: block; }
 				<section>
 					<h3>BEM - Block, Element, Modifier</h3>
 					<pre class="css"><code>/**
-  Product item component
+ * Product item component
  */
 // Block
-.product { ... }
+.product { [...] }
 
 // Elements
-.product__title { ... }
-.product__image { ... }
+.product__title { [...] }
+.product__image { [...] }
 
 // Modifiers
-.product--highlighted { ... }
-.product__thumb--large { ... }</code></pre>
+.product--highlighted { [...] }
+.product__thumb--large { [...] }</code></pre>
 					<aside class="notes">
 					</aside>
 				</section>
@@ -318,19 +318,25 @@ td { display: block; }
 							<li>Elements zijn children van Blocks</li>
 							<li>Modifiers zijn toepasbaar op Blocks en Elements</li>
 							<li>Modifiers zijn lichte varianten in presentatie</li>
-							<li>Classnames zijn uniek en alleen voor 1 component</li>
 						</ul>
 					</aside>
 				</section>
 				<section>
-					<h3>Waarom BEM?</h3>
+					<h3>Voordelen van BEM</h3>
 					<ul>
-						<li>Moedigt aan tot nadenken over unieke componenten en relaties tussen elementen</li>
+						<li>Verdeelt styling onder componenten</li>
 						<li>Uniforme naamgeving over hele codebase</li>
-						<li>Relaties tussen elementen afleiden uit HTML</li>
-						<li>Niet tot nauwelijks nesten selectors</li>
-						<li>Uitermate geschikt voor doorontwikkeling op lange termijn</li>
+						<li>Relaties tussen elementen af te leiden uit HTML</li>
+						<li>Lage specificty</li>
 					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Moedigt aan tot ontleden van een ontwerp tot kleine herbruikbare componenten</li>
+							<li>Classnames in een stylesheet zijn uniform en uniek over alle componenten</li>
+							<li></li>
+							<li>Niet tot nauwelijks nesten selectors</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<h3>OOCSS</h3>
@@ -344,37 +350,151 @@ td { display: block; }
 					</ol>
 				</section>
 				<section>
-					<h3>Separate structure from skin</h3>
-					<ul>
-						<li>Trek visuele properties (font, color, border) los van structuur (display, margin, padding)</li>
-						<li>Stel componenten samen op basis van deze abstracties</li>
-						<li>Visuele abstracties kunnen gebruikt worden als modifiers bovenop structuur</li>
-					</ul>
+					<h3>Separate structure<br> from skin</h3>
+					<table>
+						<tr>
+							<td>
+								<pre class="css"><code>.btn-primary {
+  border: 2px solid orangered;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: orange;
+}</code></pre>
+							</td>
+							<td>
+								<pre class="css"><code>.btn-default {
+  border: 1px solid limegreen;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-weight: normal;
+  background: lime;
+}</code></pre>
+							</td>
+						</tr>
+					</table>
 					<aside class="notes">
 						<ul>
-							<li>Single responsibility principle</li>
-							<li>Separation of concerns</li>
+							<li>Classes kunnen uit visuele en structurele properties bestaan</li>
+							<li>Deze groepen kunnen van elkaar gescheiden worden tbv hergebruik op andere plekken</li>
 						</ul>
 					</aside>
 				</section>
 				<section>
-					<h3>Separate containers from content</h3>
-					<ul>
-						<li>Zorg dat styling niet afhankelijk is <br>van de locatie in je HTML</li>
-						<li>Houdt elementen zonder class hetzelfde en elementen met class krijgen de stijling</li>
-						<li>Bevordert hergebruik van classes in je project</li>
-						<li>Zorgt ervoor dat je later geen properties hoeft te <br>unsetten op het moment dat je de styling toch niet wilt</li>
-					</ul>
+					<h3>Separate structure<br> from skin</h3>
+					<table>
+						<tr>
+							<td>
+								<pre class="css"><code>/* Structure */
+.btn-medium {
+  border: 1px solid;
+  padding: 5px 10px;
+}
+
+.btn-large {
+  border: 2px solid;
+  padding: 6px 12px;
+}
+
+</code></pre>
+							</td>
+							<td><pre class="css"><code>/* Skin */
+.btn-primary {
+  border-color: orangered;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: orange;
+}
+
+.btn-default {
+  border-color: limegreen;
+  font-size: 1rem;
+  font-weight: normal;
+  background-color: lime;
+}</code></pre>
+							</td>
+						</tr>
+					</table>
+					<aside class="notes">
+						<ul>
+							<li>Scheid type properties van elkaar</li>
+							<li>Mix 'n match classes met elkaar voor extra variatie</li>
+							<li>Structuur en uiterlijk zijn gescheiden</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h3>Separate containers<br> from content</h3>
+					<pre class="css"><code>/* Slecht */
+.page h1 {
+  [...]
+}
+
+/* Beter */
+.page-title {
+  [...]
+}</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>Zorg dat styling niet afhankelijk is <br>van de locatie in je HTML</li>
+							<li>Houdt elementen zonder class hetzelfde en elementen met class krijgen de stijling</li>
+							<li>Bevordert hergebruik van classes in je project</li>
+							<li>Zorgt ervoor dat je later geen properties hoeft te <br>unsetten op elementen waar je de styling niet wilt</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<h3>OOCSS Mixins</h3>
-					<ul>
-						<li>Verplaats losse OOCSS classes naar mixins</li>
-						<li>Stel classes samen obv deze mixins</li>
-						<li>Houdt je HTML en CSS stricter gescheiden, minder tot geen class clutter</li>
-						<li>Geen meerdere classes nodig, alle styling zit in 1 class</li>
-						<li>Geeft je de mogelijkheid beschrijvende namen te geven aan je class ipv generieke namen als <code>.btn.btn-primary.btn-large</code></li>
-					</ul>
+					<table>
+						<tr>
+							<td>
+								<pre class="sass"><code>/* Structure */
+@mixin btn-medium {
+  border: 1px solid;
+  padding: 5px 10px;
+}
+
+@mixin btn-large {
+  border: 2px solid;
+  padding: 6px 12px;
+}
+
+</code></pre>
+							</td>
+							<td><pre class="sass"><code>/* Skin */
+@mixin btn-primary {
+  border-color: orangered;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: orange;
+}
+
+@mixin btn-default {
+  border-color: limegreen;
+  font-size: 1rem;
+  font-weight: normal;
+  background-color: lime;
+}</code></pre>
+							</td>
+							<td>
+<pre class="css"><code>.btn-cta {
+  @include btn-large;
+  @include btn-primary;
+}</code></pre>
+							</td>
+						</tr>
+					</table>
+					<aside class="notes">
+						<ul>
+							<li>Verplaats losse OOCSS classes naar mixins</li>
+							<li>Stel classes samen obv deze mixins</li>
+							<li>Houdt je HTML en CSS stricter gescheiden, minder tot geen class clutter</li>
+							<li>Geen meerdere classes nodig, alle styling zit in 1 class</li>
+							<li>Geeft je de mogelijkheid beschrijvende namen te geven aan je class ipv generieke namen als <code>.btn.btn-primary.btn-large</code></li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<h3>OOCSS Mixins<br>extra voordelen</h3>
@@ -395,11 +515,17 @@ td { display: block; }
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+				width: 1240,
+
+				margin: 0.1,
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
+				dependencies: [{
+						src: 'plugin/markdown/marked.js'
+					},
+					{
+						src: 'plugin/markdown/markdown.js'
+					},
 					{
 						src: 'plugin/notes/notes.js',
 						async: true
@@ -414,4 +540,5 @@ td { display: block; }
 			});
 		</script>
 	</body>
+
 </html>
