@@ -189,6 +189,10 @@ body {
 .reveal table tbody tr:last-child td {
   border-bottom: none; }
 
+.reveal sup,
+.reveal sub {
+  font-size: .75em; }
+
 .reveal sup {
   vertical-align: super; }
 

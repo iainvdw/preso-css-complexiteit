@@ -27,7 +27,7 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>CSS structuur</h1>
+					<h1>CompleCSS</h1>
 					<p>
 						Iain van der Wiel<br />
 						<small>
@@ -49,9 +49,15 @@
 				</section>
 				<section>
 					<h2>CSS schrijven<br>is makkelijk</h2>
+					<aside class="notes">
+						Paar dingen die je moet kennen. Selectors, properties, values...
+					</aside>
 				</section>
 				<section>
 					<h2>Goede CSS <br>schrijven is complex</h2>
+					<aside class="notes">
+						Maar...
+					</aside>
 				</section>
 				<section class="bg-why">
 					<aside class="notes">
@@ -85,7 +91,8 @@
 					<aside class="notes">
 						<ul>
 							<li>Bepaalt welke properties uit welke stylesheets toegepast worden</li>
-							<li>Verschillende bronnen (UA, developer, bezoeker)</li>
+							<li>Verschillende bronnen (UA, developer, inline styles)</li>
+							<li>!important kan dat overrulen</li>
 						</ul>
 					</aside>
 				</section>
@@ -104,6 +111,7 @@
 					<aside class="notes">
 						<ul>
 							<li>Overerving van parent elements</li>
+							<li>Een van de krachtigste features van CSS</li>
 							<li>Afhankelijk van plaatsing in HTML</li>
 							<li>Maar niet alles wordt overgeërfd</li>
 						</ul>
@@ -114,27 +122,26 @@
 					<aside class="notes">
 						<ul>
 							<li>Volgorde van selectors in je stylesheet heeft invloed op styling</li>
+							<li>Tot nu toe alleen features van CSS</li>
 						</ul>
 					</aside>
-				</section>
-				<!-- <section>
-					<h2>Scoping</h2>
-					<aside class="notes">
-						<ul>
-							<li>CSS is globaal</li>
-							<li>CSS valt niet uniek toe te passen op 1 element</li>
-							<li>Maar zo is CSS bedoeld</li>
-						</ul>
-					</aside>
-				</section> -->
-				<section>
-					<h2>Waaraan herken<br> je complexiteit?</h2>
 				</section>
 				<section>
 					<img src="img/halp.gif" alt="">
 					<br>
 					<small>* verplicht kattenplaatje</small>
 					<aside class="notes">
+						<ul>
+							<li>Zaken waar we op moeten letten</li>
+							<li>Nog geen complexiteit geintroduceerd</li>
+							<li>Die introduceren we zelf</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Waaraan herken<br> je complexiteit?</h2>
+					<aside class="notes">
+						Wat zijn nou de zaken waaraan je merkt dat je CSS er complexer op wordt?
 					</aside>
 				</section>
 				<section>
@@ -215,7 +222,7 @@ td { display: block; }
 					<p>Inverted Triangle CSS</p>
 					<img src="img/itcss.jpg" alt="">
 				</section>
-				<section>
+				<!-- <section>
 					<h3>Wat is ITCSS?</h3>
 					<ul>
 						<li>Dicteert source order</li>
@@ -223,7 +230,7 @@ td { display: block; }
 						<li>Voorkomt verspringen door je<br> stylesheet door specificiteit</li>
 						<li>Goed bestand tegen <br>source order aanpassingen</li>
 					</ul>
-				</section>
+				</section> -->
 				<section>
 					<h3>ITCSS - structuur</h3>
 					<pre><code class="nohighlight">css/
@@ -345,10 +352,46 @@ td { display: block; }
 				<section>
 					<h3>OOCSS — principes</h3>
 					<ol>
-						<li>Separate structure from skin</li>
 						<li>Separate containers from content</li>
+						<li>Separate structure from skin</li>
 					</ol>
 				</section>
+				<section>
+					<h3>Separate containers<br> from content</h3>
+					<table>
+						<tr>
+							<td>
+								<pre class="css"><code>/* Slecht */
+#sidebar h3 {
+  font-size: 2em;
+  color: #f30;
+}
+
+#footer h3 {
+  font-size: 2em;
+  color: #f30;
+}</code></pre>
+
+							</td>
+							<td>
+<pre class="css"><code>/* Beter */
+.sub-heading {
+  font-size: 2em;
+  color: #f30;
+}</code></pre>
+
+							</td>
+						</tr>
+					</table>
+						<aside class="notes">
+							<ul>
+								<li>Zorg dat styling niet afhankelijk is van de locatie in je HTML</li>
+								<li>Houdt elementen zonder class hetzelfde en elementen met class krijgen de stijling</li>
+								<li>Bevordert hergebruik van classes in je project, eerste is niet herbruikbaar, tweede wel.</li>
+								<li>Zorgt ervoor dat je later geen properties hoeft te unsetten op elementen waar je de styling niet wilt</li>
+							</ul>
+						</aside>
+					</section>
 				<section>
 					<h3>Separate structure<br> from skin</h3>
 					<table>
@@ -426,26 +469,6 @@ td { display: block; }
 					</aside>
 				</section>
 				<section>
-					<h3>Separate containers<br> from content</h3>
-					<pre class="css"><code>/* Slecht */
-.page h1 {
-  [...]
-}
-
-/* Beter */
-.page-title {
-  [...]
-}</code></pre>
-					<aside class="notes">
-						<ul>
-							<li>Zorg dat styling niet afhankelijk is <br>van de locatie in je HTML</li>
-							<li>Houdt elementen zonder class hetzelfde en elementen met class krijgen de stijling</li>
-							<li>Bevordert hergebruik van classes in je project</li>
-							<li>Zorgt ervoor dat je later geen properties hoeft te <br>unsetten op elementen waar je de styling niet wilt</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
 					<h3>OOCSS Mixins</h3>
 					<table>
 						<tr>
@@ -479,31 +502,61 @@ td { display: block; }
 }</code></pre>
 							</td>
 							<td>
-<pre class="css"><code>.btn-cta {
+								<pre class="css"><code>.btn-cta {
   @include btn-large;
   @include btn-primary;
 }</code></pre>
+								<pre class="html"><code><button class="btn-cta">
+  Klik hier
+</button></code></pre>
 							</td>
 						</tr>
 					</table>
 					<aside class="notes">
 						<ul>
-							<li>Verplaats losse OOCSS classes naar mixins</li>
-							<li>Stel classes samen obv deze mixins</li>
-							<li>Houdt je HTML en CSS stricter gescheiden, minder tot geen class clutter</li>
-							<li>Geen meerdere classes nodig, alle styling zit in 1 class</li>
+							<li>Verplaats losse OOCSS classes naar mixins en stel hiermee classes samen</li>
+							<li>Composition over inheritance</li>
 							<li>Geeft je de mogelijkheid beschrijvende namen te geven aan je class ipv generieke namen als <code>.btn.btn-primary.btn-large</code></li>
+							<li>Geen meerdere classes nodig, alle styling zit in 1 class</li>
+							<li>Houdt je HTML en CSS stricter gescheiden, minder tot geen class clutter</li>
 						</ul>
 					</aside>
 				</section>
 				<section>
 					<h3>OOCSS Mixins<br>extra voordelen</h3>
 					<ul>
-						<li>Alle styling zit in 1 selector</li>
-						<li>Gzip maakt korte metten met gedupliceerde properties, output is zelfs kleiner dan via @extend</li>
-						<li>Simpliciteit van output is vele malen hoger</li>
+						<li>Styling zit volledig in CSS ipv verweven met HTML</li>
 						<li>Ongebruikte mixins genereren ook geen output meer</li>
+						<li>Gzip kan herhaalde properties <b><i>veel beter</i></b> comprimeren<br>
+							dan herhaalde selectors <sup>[1]</sup></li>
+						<li>Simpliciteit van CSS output is hoger <sup>[1]</sup></li>
 					</ul>
+					<p>
+						<small>[1] <a href="https://tech.bellycard.com/blog/sass-mixins-vs-extends-the-data/">Sass Mixins vs Extends: The Data</a></small>
+					</p>
+					<aside class="notes">
+						<ul>
+							<li>In geval van redesigns stukken minder HTML aan te passen<br> omdat alle styling in de CSS is verwerkt ipv in de HTML</li>
+							<li>Gzip maakt korte metten met gedupliceerde properties, output is zelfs kleiner dan via @extends <sup>[1]</sup></li>
+							<li>Simpliciteit van output is vele malen hoger <sup>[1]</sup></li>
+							<li>Ongebruikte mixins genereren ook geen output meer</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h3>Conclusie</h3>
+					<ul>
+						<li>Maak slim gebruik van de features van CSS</li>
+						<li>Schrijf niet teveel CSS</li>
+						<li>Structureer je stylesheet</li>
+						<li>Hou code style uniform</li>
+						<li>Ontleed pagina's in herbruikbare componenten</li>
+						<li>Ontleed je styling in herbruikbare mixins</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Vragen?</h3>
+					<img src="img/vragen.gif" alt="">
 				</section>
 			</div>
 		</div>
@@ -514,10 +567,14 @@ td { display: block; }
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				slideNumber: true,
 				history: true,
-				width: 1240,
 
+				width: 1240,
 				margin: 0.1,
+
+				transition: 'fade',
+				transitionSpeed: 'fast',
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [{
