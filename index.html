@@ -34,25 +34,36 @@
 							Senior front-end developer @ E-sites
 							<br>
 							<a href="https://twitter.com/iain_vdw" class="profile-link">
-								<img src="img/twitter.svg" alt="" width="24" height="24">
+								<img src="img/twitter.svg" alt="Twitter" width="24" height="24">
 								@iain_vdw
 							</a>
 							<a href="https://fronteers.slack.com/" class="profile-link">
-								<img src="img/slack.svg" alt="" width="24" height="24">
+								<img src="img/slack.svg" alt="Slack" width="24" height="24">
 								@iejun
 							</a>
 						</small>
 					</p>
 					<aside class="notes">
-						Introductie<br /> Onderwerp, naam, functie, social, etc.
+						<ul>
+							<li>Over complexiteit in CSS</li>
+							<li>Waar dat vandaan komt</li>
+							<li>En hoe je dmv structureren die complexiteit weg kan nemen</li>
+						</ul>
 					</aside>
 				</section>
 				<section>
 					<h2>CSS schrijven<br>is makkelijk</h2>
 					<aside class="notes">
-						Paar dingen die je moet kennen. Selectors, properties, values...
+						<ul>
+							<li>Paar dingen die je moet kennen</li>
+							<li>Selectors om elementen te selecteren</li>
+							<li>Properties zoals font-family</li>
+							<li>Properties geef je een value</li>
+							<li></li>
+						</ul>
 					</aside>
 				</section>
+				<section><img src="img/thumbs-up.gif" width="800" alt=""></section>
 				<section>
 					<h2>Goede CSS <br>schrijven is complex</h2>
 					<aside class="notes">
@@ -98,6 +109,16 @@
 				</section>
 				<section>
 					<h2>Specificity</h2>
+					<pre class="css"><code>/* Element */
+h1 { ... }
+
+/* Class */
+.article { ... }
+
+/* ID */
+#why-would-you-even-do-this { ... }</code></pre>
+					<pre class="html"><code><!-- ( ͡° ͜ʖ ͡°) Muahaha -->
+<h1 style="font-weight: bold;"></h1></code></pre>
 					<aside class="notes">
 						<ul>
 							<li>Gewicht per selector</li>
@@ -108,6 +129,13 @@
 				</section>
 				<section>
 					<h2>Inheritance</h2>
+					<pre class="html"><code><div class="text-red">
+  <h1>Deze is rood.</h1>
+</div>
+
+<div class="text-blue">
+  <h1>Deze is blauw.</h1>
+</div></code></pre>
 					<aside class="notes">
 						<ul>
 							<li>Overerving van parent elements</li>
@@ -119,6 +147,28 @@
 				</section>
 				<section>
 					<h2>Source order</h2>
+					<table>
+						<tr>
+							<td>
+								<b>CSS:</b>
+								<pre class="css"><code>.text-red {
+  color: red;
+}
+
+.text-blue {
+  color: blue;
+}
+</code></pre>
+							</td>
+							<td>
+								<b>HTML:</b>
+								<pre class="html"><code><h1 class="text-blue text-red">
+  Rood. Of toch niet?
+</h1>
+</code></pre>
+							</td>
+						</tr>
+					</table>
 					<aside class="notes">
 						<ul>
 							<li>Volgorde van selectors in je stylesheet heeft invloed op styling</li>
@@ -127,7 +177,7 @@
 					</aside>
 				</section>
 				<section>
-					<img src="img/halp.gif" alt="">
+					<img src="img/halp.gif" alt="" height="580">
 					<br>
 					<small>* verplicht kattenplaatje</small>
 					<aside class="notes">
@@ -146,15 +196,27 @@
 				</section>
 				<section>
 					<h3>Ongewenste stijling</h3>
-					<pre class="css"><code>/* Slecht */
-div ul li a { font-weight: bold; }
+					<pre class="css"><code>/* Meh */
+div ul li a {
+  font-weight: bold;
+  text-decoration: underline;
+  color: red;
+}
 
 /* Beter */
-.list-link { font-weight: bold; }</code></pre>
+a {
+  text-decoration: underline;
+}
+
+.list-link {
+  font-weight: bold;
+  color: red;
+}</code></pre>
 					<aside class="notes">
 						<ul>
 							<li>Door te generieke selectors met te specifieke styling</li>
-							<li>Sensible defaults voor elementen en componenten</li>
+							<li>Gebruik hiervoor in de plaats sensible defaults</li>
+							<li>Styling lostrekken in een class en expliciet toepassen op de plekken waar we het wel willen hebben</li>
 						</ul>
 					</aside>
 				</section>
@@ -163,18 +225,17 @@ div ul li a { font-weight: bold; }
 					<pre class="css"><code>/**
  * Responsive table
  */
-/* Slecht */
+/* Meh */
 td { display: block; }
 
 @media screen and ( min-width: 640px ) {
-    td { display: table-cell; }
+  td { display: table-cell; }
 }
 
 /* Beter */
 @media screen and ( max-width: 640px ) {
-    td { display: block; }
+  td { display: block; }
 }</code></pre>
-
 					<aside class="notes">
 						<ul>
 							<li>Door verkeerd gebruik van media queries</li>
@@ -184,29 +245,59 @@ td { display: block; }
 				</section>
 				<section>
 					<h3>Te hoge specificity</h3>
-					<pre class="css"><code>/* Slecht */
-#product-list .product h3 a { font-weight: bold; }
+					<pre class="css"><code>/* Meh */
+#product-list .product h3 a {
+  font-weight: bold;
+  color: red;
+}
+
+#sidebar .block h2 a {
+  font-weight: bold;
+  color: red;
+}
 
 /* Beter */
-.product-title-link { font-weight: bold; }</code></pre>
+.product-title-link {
+  font-weight: bold;
+  color: red;
+}</code></pre>
 
 					<aside class="notes">
 						<ul>
-							<li>Lange complexe specifieke selectors</li>
-							<li>Gebruik classes, geen ID's</li>
-							<li>Niet of nauwelijks selectors nesten</li>
+							<li>Maakt stijling afhankelijk van HTML structuur</li>
+							<li>Stijling is niet herbruikbaar op plekken met afwijkend structuur</li>
+							<li>Selectors met even hoge of nog hogere specificty nodig om dat te overrulen</li>
 						</ul>
 					</aside>
 				</section>
 				<section>
 					<h3>Veel variaties van UI patterns</h3>
-					<img src="img/knops.veel-knops.png" alt="">
+					<img src="img/knops.veel-knops.png" alt="" width="50%"><br>
 					<small>Image credit: <a href="https://www.smashingmagazine.com/atomic-design-workflow/">Smashing Magazine - Atomic Workflow</a></small>
 
 					<aside class="notes">
 						<ul>
-							<li>Veel variaties die nét afwijken op een paar plekken</li>
-							<li>Overleg met de designer over consistentie</li>
+							<li>Veel variaties moeten maken van bepaalde patterns</li>
+							<li>Weinig consistentie, voor zowel de developer als de bezoeker</li>
+							<li>Overleg met ontwerp over consistentie en breng de hoeveelheid variaties terug</li>
+							<li>Benoem de variaties en waarom welke variatie in welke context gebruikt moet kunnen worden</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<img src="img/pull-hair.gif" height="622" alt="">
+				</section>
+				<section>
+					<h3>CSS Components</h3>
+					<blockquote>
+						Create design systems, not pages.<br>
+						<cite>— Atomic Design</cite>
+					</blockquote>
+					<aside class="notes">
+						<ul>
+							<li>Ontleedt je pagina's in componenten</li>
+							<li>Ontwikkel een systeem in die componenten</li>
+							<li>Link naar preso Bram</li>
 						</ul>
 					</aside>
 				</section>
@@ -221,27 +312,23 @@ td { display: block; }
 					<h3>ITCSS</h3>
 					<p>Inverted Triangle CSS</p>
 					<img src="img/itcss.jpg" alt="">
+					<aside class="notes">
+						<ul>
+							<li>Dicteert source order</li>
+							<li>Volgorde o.b.v. specificiteit</li>
+						</ul>
+					</aside>
 				</section>
-				<!-- <section>
-					<h3>Wat is ITCSS?</h3>
-					<ul>
-						<li>Dicteert source order</li>
-						<li>Volgorde o.b.v. specificiteit</li>
-						<li>Voorkomt verspringen door je<br> stylesheet door specificiteit</li>
-						<li>Goed bestand tegen <br>source order aanpassingen</li>
-					</ul>
-				</section> -->
 				<section>
 					<h3>ITCSS - structuur</h3>
-					<pre><code class="nohighlight">css/
-├── settings/
+					<pre><code class="nohighlight">┌── settings/
 │   ├── colours.scss
 │   └── grid.scss
 ├── tools/
 │   ├── functions.scss
 │   └── mixins.scss
 ├── generic/
-│   └── normalize/
+│   └── normalize.scss
 ├── base/
 │   ├── forms.scss
 │   └── typography.scss
@@ -268,8 +355,8 @@ td { display: block; }
 					<h3>Waarom ITCSS?</h3>
 					<ul>
 						<li>Vermindert problemen met <br>source order en specificity</li>
-						<li>Verbetert gemak onderhoud <br>en doorontwikkeling</li>
-						<li>Moedigt aan tot nadenken <br>scheiding objects en components</li>
+						<li class="fragment">Verbetert gemak onderhoud <br>en doorontwikkeling</li>
+						<li class="fragment">Moedigt aan tot nadenken <br>scheiding objects en components</li>
 					</ul>
 				</section>
 				<section>
@@ -290,9 +377,8 @@ td { display: block; }
 					<aside class="notes">
 					</aside>
 				</section>
-				<section class="bg-disgusting">
-				</section>
-				<section class="bg-nonono">
+				<section>
+					<img src="img/do-not-want.gif" alt="" height="622">
 					<aside class="notes">
 						<ul>
 							<li>Veelgehoorde opmerkingen:</li>
@@ -331,10 +417,10 @@ td { display: block; }
 				<section>
 					<h3>Voordelen van BEM</h3>
 					<ul>
-						<li>Verdeelt styling onder componenten</li>
-						<li>Uniforme naamgeving over hele codebase</li>
-						<li>Relaties tussen elementen af te leiden uit HTML</li>
-						<li>Lage specificty</li>
+						<li>Verdeelt styling in componenten</li>
+						<li class="fragment">Uniforme naamgeving over hele codebase</li>
+						<li class="fragment">Relaties tussen elementen af te leiden uit HTML</li>
+						<li class="fragment">Lage specificty</li>
 					</ul>
 					<aside class="notes">
 						<ul>
@@ -345,6 +431,7 @@ td { display: block; }
 						</ul>
 					</aside>
 				</section>
+				<section><img src="img/nod-head.gif" height="660" alt=""></section>
 				<section>
 					<h3>OOCSS</h3>
 					<p>Object-oriented CSS</p>
@@ -361,7 +448,7 @@ td { display: block; }
 					<table>
 						<tr>
 							<td>
-								<pre class="css"><code>/* Slecht */
+								<pre class="css"><code>/* Meh */
 #sidebar h3 {
   font-size: 2em;
   color: #f30;
@@ -526,12 +613,12 @@ td { display: block; }
 					<h3>OOCSS Mixins<br>extra voordelen</h3>
 					<ul>
 						<li>Styling zit volledig in CSS ipv verweven met HTML</li>
-						<li>Ongebruikte mixins genereren ook geen output meer</li>
-						<li>Gzip kan herhaalde properties <b><i>veel beter</i></b> comprimeren<br>
+						<li class="fragment">Ongebruikte mixins genereren ook geen output meer</li>
+						<li class="fragment">Gzip kan herhaalde properties <b><i>veel beter</i></b> comprimeren<br>
 							dan herhaalde selectors <sup>[1]</sup></li>
-						<li>Simpliciteit van CSS output is hoger <sup>[1]</sup></li>
+						<li class="fragment">Simpliciteit van CSS output is hoger <sup>[1]</sup></li>
 					</ul>
-					<p>
+					<p class="fragment">
 						<small>[1] <a href="https://tech.bellycard.com/blog/sass-mixins-vs-extends-the-data/">Sass Mixins vs Extends: The Data</a></small>
 					</p>
 					<aside class="notes">
@@ -547,11 +634,11 @@ td { display: block; }
 					<h3>Conclusie</h3>
 					<ul>
 						<li>Maak slim gebruik van de features van CSS</li>
-						<li>Schrijf niet teveel CSS</li>
-						<li>Structureer je stylesheet</li>
-						<li>Hou code style uniform</li>
-						<li>Ontleed pagina's in herbruikbare componenten</li>
-						<li>Ontleed je styling in herbruikbare mixins</li>
+						<li class="fragment">Schrijf niet teveel CSS</li>
+						<li class="fragment">Structureer je stylesheet voor voorspelbaarheid</li>
+						<li class="fragment">Hou code style uniform in je project</li>
+						<li class="fragment">Ontleed pagina's in herbruikbare componenten</li>
+						<li class="fragment">Ontleed je componenten in herbruikbare mixins</li>
 					</ul>
 				</section>
 				<section>
