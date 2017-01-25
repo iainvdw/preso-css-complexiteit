@@ -59,13 +59,13 @@
 							<li>Selectors om elementen te selecteren</li>
 							<li>Properties zoals font-family</li>
 							<li>Properties geef je een value</li>
-							<li></li>
+							<li>En dan kan je CSS schrijven!</li>
 						</ul>
 					</aside>
 				</section>
 				<section><img src="img/thumbs-up.gif" width="800" alt=""></section>
 				<section>
-					<h2>Goede CSS <br>schrijven is complex</h2>
+					<h2>Schaalbare CSS <br>schrijven is complex</h2>
 					<aside class="notes">
 						Maar...
 					</aside>
@@ -83,6 +83,7 @@
 						<ul>
 							<li>Iedereen vast wel in deze situatie geweest</li>
 							<li>Pas op 1 plek CSS aan en op andere plekken valt er iets om</li>
+							<li>Misschien opgelost met nog specifiekere selector of !important</li>
 							<li>Waar ligt dat aan?</li>
 						</ul>
 					</aside>
@@ -90,11 +91,8 @@
 				<section>
 					<h2>Eigenaardigheden<br> van CSS</h2>
 					<aside class="notes">
-						<li>Ontworpen in 1996, 20 jaar oud</li>
-						<li>Cascade</li>
-						<li>Inheritance</li>
-						<li>Specifity</li>
-						<li>Source order</li>
+						<li>Features van CSS zijn krachtig</li>
+						<li>Maar kunnen complexiteit introduceren wanneer er niet goed mee omgegaan wordt</li>
 					</aside>
 				</section>
 				<section>
@@ -104,6 +102,7 @@
 							<li>Bepaalt welke properties uit welke stylesheets toegepast worden</li>
 							<li>Verschillende bronnen (UA, developer, inline styles)</li>
 							<li>!important kan dat overrulen</li>
+							<li>Kan soms verwarrend worden welke styling waarvandaan komt tussen verschillende of binnen stylesheets</li>
 						</ul>
 					</aside>
 				</section>
@@ -172,7 +171,8 @@ h1 { ... }
 					<aside class="notes">
 						<ul>
 							<li>Volgorde van selectors in je stylesheet heeft invloed op styling</li>
-							<li>Tot nu toe alleen features van CSS</li>
+							<li>Volgorde in HTML wordt genegeerd</li>
+							<li>Misschien denk je nu al...</li>
 						</ul>
 					</aside>
 				</section>
@@ -182,6 +182,7 @@ h1 { ... }
 					<small>* verplicht kattenplaatje</small>
 					<aside class="notes">
 						<ul>
+							<li>Tot nu toe alleen features van CSS</li>
 							<li>Zaken waar we op moeten letten</li>
 							<li>Nog geen complexiteit geintroduceerd</li>
 							<li>Die introduceren we zelf</li>
@@ -286,6 +287,12 @@ td { display: block; }
 				</section>
 				<section>
 					<img src="img/pull-hair.gif" height="622" alt="">
+					<aside class="notes">
+						<ul>
+							<li>Misschien is nu dit al je reactie?</li>
+							<li>Maar er is hulp!</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<h3>CSS Components</h3>
@@ -342,14 +349,29 @@ td { display: block; }
     └── helpers.scss</code></pre>
 				</section>
 				<section>
-					<h3>ITCSS - voor</h3>
-					<img src="img/itcss-style-jumping.jpg" alt="" style="float: left; width: 45%;">
-					<img src="img/itcss-spec-graph-before.jpg" alt="" style="float: right; width: 45%;">
+					<h3>Zonder ITCSS</h3>
+					<img src="img/itcss-style-jumping.jpg" alt="" style="float: left; height: 300px;">
+					<img src="img/itcss-spec-graph-before.jpg" alt="" style="float: right; height: 300px;">
+					<aside class="notes">
+						<ul>
+							<li>Zonder ITCSS geen duidelijke volgorde in je stylesheet</li>
+							<li>Styling komt van verschillende onvoorspelbare plekken</li>
+							<li>Specificity volgt geen natuurlijke volgorde</li>
+							<li>Dalen na een specificity piek hebben mogelijk problemen met het overriden van properties uit een piek</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
-					<h3>ITCSS - na</h3>
-					<img src="img/itcss-style-ordering.jpg" alt="" style="float: left; width: 45%;">
-					<img src="img/itcss-spec-graph-after.jpg" alt="" style="float: right; width: 45%;">
+					<h3>Met ITCSS</h3>
+					<img src="img/itcss-style-ordering.jpg" alt="" style="float: left; height: 300px;">
+					<img src="img/itcss-spec-graph-after.jpg" alt="" style="float: right; height: 300px;">
+					<aside class="notes">
+						<ul>
+							<li>Met ITCSS betere volgorde obv specificity</li>
+							<li>Styling komt uit voorspelbare lagen</li>
+							<li>Specificity is beter geordend, waardoor minder problemen</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<h3>Waarom ITCSS?</h3>
@@ -375,6 +397,10 @@ td { display: block; }
 .product--highlighted { [...] }
 .product__thumb--large { [...] }</code></pre>
 					<aside class="notes">
+						<ul>
+							<li>Block, Element, Modifier</li>
+							<li>Methodiek qua naamgeving van classes en components</li>
+						</ul>
 					</aside>
 				</section>
 				<section>
@@ -426,8 +452,8 @@ td { display: block; }
 						<ul>
 							<li>Moedigt aan tot ontleden van een ontwerp tot kleine herbruikbare componenten</li>
 							<li>Classnames in een stylesheet zijn uniform en uniek over alle componenten</li>
-							<li></li>
-							<li>Niet tot nauwelijks nesten selectors</li>
+							<li>Classes die beginnen met dezelfde block naam horen bij elkaar</li>
+							<li>Nauwelijks te hoeven nesten selectors</li>
 						</ul>
 					</aside>
 				</section>
@@ -636,7 +662,7 @@ td { display: block; }
 						<li>Maak slim gebruik van de features van CSS</li>
 						<li class="fragment">Schrijf niet teveel CSS</li>
 						<li class="fragment">Structureer je stylesheet voor voorspelbaarheid</li>
-						<li class="fragment">Hou code style uniform in je project</li>
+						<li class="fragment">Zorg voor uniforme code style in je project</li>
 						<li class="fragment">Ontleed pagina's in herbruikbare componenten</li>
 						<li class="fragment">Ontleed je componenten in herbruikbare mixins</li>
 					</ul>
