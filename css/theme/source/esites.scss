@@ -15,6 +15,8 @@
 @import "../template/settings";
 // ---------------------------------------------
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic);
+
 // Colors used in the theme
 $red: #f4004d;
 $coal: #222;
@@ -23,12 +25,12 @@ $codeBackground: #23241f;
 $backgroundColor: $coal;
 
 // Main text
-$mainFont: OpenSans, 'sans-serif';
+$mainFont: OpenSans, 'Open Sans', 'sans-serif';
 $mainFontSize: 36px;
 $mainColor: #eee;
 
 // Headings
-$headingFont: OpenSans, 'sans-serif';
+$headingFont: OpenSans, 'Open Sans', 'sans-serif';
 $headingTextShadow: 2px 2px 2px $coal;
 $heading1Size: 3.25em;
 
@@ -41,7 +43,6 @@ $selectionBackgroundColor: $red;
 $selectionColor: #fff;
 
 // Include theme-specific fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic);
 
 // Custom styling ------------------------------
 
