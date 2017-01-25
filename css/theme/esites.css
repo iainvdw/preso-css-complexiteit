@@ -15,17 +15,17 @@
   background-size: cover; }
   .slide-background.bg-why {
     background-size: cover;
-    background-image: url(/img/but-why-2.gif); }
+    background-image: url(../../img/but-why-2.gif); }
   .slide-background.bg-nonono {
     background-size: contain;
-    background-image: url(/img/no.gif); }
+    background-image: url(../../img/no.gif); }
   .slide-background.bg-puzzle {
     background-size: contain;
-    background-image: url(/img/css.gif); }
+    background-image: url(../../img/css.gif); }
   .slide-background.bg-disgusting {
-    background-image: url(/img/do-not-want.gif); }
+    background-image: url(../../img/do-not-want.gif); }
   .slide-background.bg-ieuw {
-    background-image: url(/img/ieuw.gif); }
+    background-image: url(../../img/ieuw.gif); }
 
 .reveal .profile-link {
   display: inline-block;
