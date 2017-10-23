@@ -1,252 +1,286 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>CSS Structuur - Iain van der Wiel</title>
+  <title>CSS Structuur - Iain van der Wiel</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/esites.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/esites.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement('link');
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName('head')[0].appendChild(link);
-		</script>
-	</head>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ?
+      'css/print/pdf.css' :
+      'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
 
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h1>CompleCSS</h1>
-					<p>
-						Iain van der Wiel<br />
-						<small>
-							Senior front-end developer @ E-sites
-							<br>
-							<a href="https://twitter.com/iain_vdw" class="profile-link">
-								<img src="img/twitter.svg" alt="Twitter" width="24" height="24">
-								@iain_vdw
-							</a>
-							<a href="https://fronteers.slack.com/" class="profile-link">
-								<img src="img/slack.svg" alt="Slack" width="24" height="24">
-								@iejun
-							</a>
-						</small>
-					</p>
-					<aside class="notes">
-						<ul>
-							<li>Over complexiteit in CSS</li>
-							<li>Waar dat vandaan komt</li>
-							<li>En hoe je dmv structureren die complexiteit weg kan nemen</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h2>CSS schrijven<br>is makkelijk</h2>
-					<aside class="notes">
-						<ul>
-							<li>Paar dingen die je moet kennen</li>
-							<li>Selectors om elementen te selecteren</li>
-							<li>Properties zoals font-family</li>
-							<li>Properties geef je een value</li>
-							<li>En dan kan je CSS schrijven!</li>
-						</ul>
-					</aside>
-				</section>
-				<section><img src="img/thumbs-up.gif" width="800" alt=""></section>
-				<section>
-					<h2>Schaalbare CSS <br>schrijven is complex</h2>
-					<aside class="notes">
-						Maar...
-					</aside>
-				</section>
-				<section class="bg-why">
-					<aside class="notes">
-						<ul>
-							<li>Maar waarom?</li>
-							<li>En wat is nou goede CSS?</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="bg-puzzle">
-					<aside class="notes">
-						<ul>
-							<li>Iedereen vast wel in deze situatie geweest</li>
-							<li>Pas op 1 plek CSS aan en op andere plekken valt er iets om</li>
-							<li>Misschien opgelost met nog specifiekere selector of !important</li>
-							<li>Waar ligt dat aan?</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h2>Eigenaardigheden<br> van CSS</h2>
-					<aside class="notes">
-						<li>Features van CSS zijn krachtig</li>
-						<li>Maar kunnen complexiteit introduceren wanneer er niet goed mee omgegaan wordt</li>
-					</aside>
-				</section>
-				<section>
-					<h2>Cascade</h2>
-					<aside class="notes">
-						<ul>
-							<li>Bepaalt welke properties uit welke stylesheets toegepast worden</li>
-							<li>Verschillende bronnen (UA, developer, inline styles)</li>
-							<li>!important kan dat overrulen</li>
-							<li>Kan soms verwarrend worden welke styling waarvandaan komt tussen verschillende of binnen stylesheets</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h2>Specificity</h2>
-					<pre class="css"><code>/* Element */
-h1 { ... }
-
-/* Class */
-.article { ... }
-
-/* ID */
-#why-would-you-even-do-this { ... }</code></pre>
-					<pre class="html"><code><!-- ( ͡° ͜ʖ ͡°) Muahaha -->
-<h1 style="font-weight: bold;"></h1></code></pre>
-					<aside class="notes">
-						<ul>
-							<li>Gewicht per selector</li>
-							<li>Inline &gt; IDs &gt; classes &gt; elements</li>
-							<li>Hoge specificteit kan problemen opleveren in onderhoud en doorontwikkeling</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h2>Inheritance</h2>
-					<pre class="html"><code><div class="text-red">
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>CompleCSS</h1>
+        <p>
+          Iain van der Wiel
+          <br />
+          <small>
+            Senior front-end developer @ E-sites te Breda
+            <br>
+            <a href="https://twitter.com/iain_vdw" class="profile-link">
+              <img src="img/twitter.svg" alt="Twitter" width="24" height="24"> @iain_vdw
+            </a>
+            <a href="https://github.com/iainvdw/" class="profile-link">
+              <img src="img/github.svg" alt="Github" width="24" height="24"> @iainvdw
+            </a>
+          </small>
+        </p>
+      </section>
+      <section>
+        <h2>CSS schrijven
+          <br>is simpel...</h2>
+        <aside class="notes">
+          <ul>
+            <li>Paar dingen die je moet kennen</li>
+            <li>Selectors om elementen te selecteren</li>
+            <li>Properties zoals font-family</li>
+            <li>Properties geef je een value</li>
+            <li>En dan kan je CSS schrijven!</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <img src="img/thumbs-up.gif" width="800" alt="">
+      </section>
+      <section>
+        <h2>...maar
+          <br>niet makkelijk</h2>
+        <aside class="notes">
+          Maar...
+        </aside>
+      </section>
+      <section class="bg-why">
+        <aside class="notes">
+          <ul>
+            <li>Maar waarom?</li>
+            <li>Welke problemen komen we tegen?</li>
+            <li>Hoe lossen we deze op?</li>
+          </ul>
+        </aside>
+      </section>
+      <section class="bg-puzzle">
+        <aside class="notes">
+          <ul>
+            <li>Iedereen vast wel in deze situatie geweest</li>
+            <li>Pas op 1 plek CSS aan en op andere plekken valt er iets om</li>
+            <li>Misschien opgelost met nog specifiekere selector of !important</li>
+            <li>Waar ligt dat aan?</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Complexiteit in CSS</h2>
+        <ul>
+          <li>Ins &amp; outs van CSS</li>
+          <li>Structuur</li>
+          <li>Verantwoordelijkheid</li>
+          <li>Inconsistentie</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>3 hoofdvormen van complexiteit</li>
+            <li>Structuur in stylesheet, hoe je CSS scrhijft, volgorde selectors</li>
+            <li>Verantwoordelijkheid van selectors, welke selector is verantwoordelijk voor welk stukje styling?</li>
+            <li>Inconsistentie in verschillende situaties</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Eigenaardigheden
+          <br> van CSS</h2>
+        <aside class="notes">
+          <li>Features van CSS zijn krachtig</li>
+          <li>Maar kunnen complexiteit introduceren wanneer er niet goed mee omgegaan wordt</li>
+        </aside>
+      </section>
+      <section>
+        <h2>Cascade</h2>
+        <aside class="notes">
+          <ul>
+            <li>Bepaalt welke properties uit welke stylesheets toegepast worden</li>
+            <li>Verschillende bronnen (UA, developer, inline styles)</li>
+            <li>!important kan dat overrulen</li>
+            <li>Kan soms verwarrend worden welke styling waarvandaan komt tussen verschillende of binnen stylesheets</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Specificity</h2>
+        <ol>
+          <li>Elementen &amp; pseudo-elementen <br><pre>
+            <code>::before</code>
+          </pre></li>
+          <li>Classes &amp; pseudo-classes <br><pre>
+            <code>:hover</code>
+          </pre></li>
+          <li>ID's</li>
+          <li>Inline styles</li>
+          <li><code>!important</code></li>
+        </ol>
+        <aside class="notes">
+          <ul>
+            <li>Gewicht per selector</li>
+            <li>Inline &gt; IDs &gt; classes &gt; elements</li>
+            <li>Hoge specificteit kan problemen opleveren in onderhoud en doorontwikkeling</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Inheritance</h2>
+        <pre class="html"><code><div class="text-red">
   <h1>Deze is rood.</h1>
 </div>
 
 <div class="text-blue">
   <h1>Deze is blauw.</h1>
 </div></code></pre>
-					<aside class="notes">
-						<ul>
-							<li>Overerving van parent elements</li>
-							<li>Een van de krachtigste features van CSS</li>
-							<li>Afhankelijk van plaatsing in HTML</li>
-							<li>Maar niet alles wordt overgeërfd</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h2>Source order</h2>
-					<table>
-						<tr>
-							<td>
-								<b>CSS:</b>
-								<pre class="css"><code>.text-red {
+        <aside class="notes">
+          <ul>
+            <li>Overerving van parent elements</li>
+            <li>Een van de krachtigste features van CSS</li>
+            <li>Afhankelijk van plaatsing in HTML</li>
+            <li>Maar niet alles wordt overgeërfd</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Source order</h2>
+        <table>
+          <tr>
+            <td>
+              <b>CSS:</b>
+              <br>
+              <pre class="css"><code>.c-red {
   color: red;
 }
 
-.text-blue {
+.c-blue {
   color: blue;
 }
 </code></pre>
-							</td>
-							<td>
-								<b>HTML:</b>
-								<pre class="html"><code><h1 class="text-blue text-red">
+            </td>
+            <td>
+              <b>HTML:</b>
+              <br>
+              <pre class="html"><code><h1 class="c-blue c-red">
   Rood. Of toch niet?
 </h1>
 </code></pre>
-							</td>
-						</tr>
-					</table>
-					<aside class="notes">
-						<ul>
-							<li>Volgorde van selectors in je stylesheet heeft invloed op styling</li>
-							<li>Volgorde in HTML wordt genegeerd</li>
-							<li>Misschien denk je nu al...</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<img src="img/halp.gif" alt="" height="580">
-					<br>
-					<small>* verplicht kattenplaatje</small>
-					<aside class="notes">
-						<ul>
-							<li>Tot nu toe alleen features van CSS</li>
-							<li>Zaken waar we op moeten letten</li>
-							<li>Nog geen complexiteit geintroduceerd</li>
-							<li>Die introduceren we zelf</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h2>Waaraan herken<br> je complexiteit?</h2>
-					<aside class="notes">
-						Wat zijn nou de zaken waaraan je merkt dat je CSS er complexer op wordt?
-					</aside>
-				</section>
-				<section>
-					<h3>Ongewenste stijling</h3>
-					<pre class="css"><code>/* Meh */
+            </td>
+          </tr>
+        </table>
+        <aside class="notes">
+          <ul>
+            <li>Volgorde van selectors in je stylesheet heeft invloed op styling</li>
+            <li>Volgorde in HTML wordt genegeerd</li>
+            <li>Misschien denk je nu al...</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <img src="img/halp.gif" alt="" height="580">
+        <br>
+        <small>* verplicht kattenplaatje</small>
+        <aside class="notes">
+          <ul>
+            <li>Tot nu toe alleen features van CSS</li>
+            <li>Zaken waar we op moeten letten</li>
+            <li>Nog geen complexiteit geintroduceerd</li>
+            <li>Die introduceren we zelf</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Waaraan herken
+          <br> je complexiteit?</h2>
+        <aside class="notes">
+          Wat zijn nou de zaken waaraan je merkt dat je CSS er complexer op wordt?
+        </aside>
+      </section>
+      <section>
+        <h3>Qualified selectors</h3>
+        <pre class="css"><code>/* Meh */
 div ul li a {
   font-weight: bold;
   text-decoration: underline;
   color: red;
-}
-
-/* Beter */
+}</code></pre>
+        <aside class="notes">
+          <ul>
+            <li>Te generieke selectors met te specifieke styling</li>
+            <li>Gebruik hiervoor in de plaats sensible defaults</li>
+            <li>Styling lostrekken in een class en expliciet toepassen op de plekken waar we het wel willen hebben</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Qualified selectors</h3>
+<pre class="css"><code>/* Beter */
+/* Sensible default */
 a {
   text-decoration: underline;
 }
 
+/* Class voor specifieke styling */
 .list-link {
   font-weight: bold;
   color: red;
 }</code></pre>
-					<aside class="notes">
-						<ul>
-							<li>Door te generieke selectors met te specifieke styling</li>
-							<li>Gebruik hiervoor in de plaats sensible defaults</li>
-							<li>Styling lostrekken in een class en expliciet toepassen op de plekken waar we het wel willen hebben</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>Resetten van properties</h3>
-					<pre class="css"><code>/**
+      </section>
+      <section>
+        <h3>Resetten van default properties</h3>
+        <pre class="css"><code>/**
  * Responsive table
  */
-/* Meh */
-td { display: block; }
 
-@media screen and ( min-width: 640px ) {
-  td { display: table-cell; }
+/* Meh */
+td { 
+  display: block; 
 }
 
-/* Beter */
-@media screen and ( max-width: 640px ) {
-  td { display: block; }
+@media screen and ( min-width: 640px ) {
+  td { 
+    display: table-cell; 
+  }
 }</code></pre>
-					<aside class="notes">
-						<ul>
-							<li>Door verkeerd gebruik van media queries</li>
-							<li>Media queries om styling 'af te schermen'</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>Te hoge specificity</h3>
-					<pre class="css"><code>/* Meh */
+        <aside class="notes">
+          <ul>
+            <li>Door verkeerd gebruik van media queries</li>
+            <li>Media queries om styling 'af te schermen'</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Resetten van default properties</h3>
+<pre><code>/* Beter */
+@media screen and ( max-width: 640px ) {
+  td { 
+    display: block; 
+  }
+}</code></pre>
+      </section>
+      <section>
+        <h3>Te hoge specificity</h3>
+        <pre class="css"><code>/* Meh */
 #product-list .product h3 a {
   font-weight: bold;
   color: red;
@@ -255,80 +289,106 @@ td { display: block; }
 #sidebar .block h2 a {
   font-weight: bold;
   color: red;
-}
-
-/* Beter */
-.product-title-link {
+}</code></pre>
+        <aside class="notes">
+          <ul>
+            <li>Maakt stijling afhankelijk van HTML structuur</li>
+            <li>Stijling is niet herbruikbaar op plekken met afwijkende structuur</li>
+            <li>Selectors met even hoge of nog hogere specificty nodig om dat te overrulen</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Te hoge specificity</h3>
+<pre><code>/* Beter */
+.title-link {
   font-weight: bold;
   color: red;
 }</code></pre>
-
-					<aside class="notes">
-						<ul>
-							<li>Maakt stijling afhankelijk van HTML structuur</li>
-							<li>Stijling is niet herbruikbaar op plekken met afwijkend structuur</li>
-							<li>Selectors met even hoge of nog hogere specificty nodig om dat te overrulen</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>Veel variaties van UI patterns</h3>
-					<img src="img/knops.veel-knops.png" alt="" width="50%"><br>
-					<small>Image credit: <a href="https://www.smashingmagazine.com/atomic-design-workflow/">Smashing Magazine - Atomic Workflow</a></small>
-
-					<aside class="notes">
-						<ul>
-							<li>Veel variaties moeten maken van bepaalde patterns</li>
-							<li>Weinig consistentie, voor zowel de developer als de bezoeker</li>
-							<li>Overleg met ontwerp over consistentie en breng de hoeveelheid variaties terug</li>
-							<li>Benoem de variaties en waarom welke variatie in welke context gebruikt moet kunnen worden</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<img src="img/pull-hair.gif" height="622" alt="">
-					<aside class="notes">
-						<ul>
-							<li>Misschien is nu dit al je reactie?</li>
-							<li>Maar er is hulp!</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>CSS Components</h3>
-					<blockquote>
-						Create design systems, not pages.<br>
-						<cite>— Atomic Design</cite>
-					</blockquote>
-					<aside class="notes">
-						<ul>
-							<li>Ontleedt je pagina's in componenten</li>
-							<li>Ontwikkel een systeem in die componenten</li>
-							<li>Link naar preso Bram</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>CSS Components</h3>
-					<p>met behulp van:</p>
-					<p><b>ITCSS</b> — <b>BEM</b> — <b>OOCSS (+ mixins)</b></p>
-					<aside class="notes">
-					</aside>
-				</section>
-				<section>
-					<h3>ITCSS</h3>
-					<p>Inverted Triangle CSS</p>
-					<img src="img/itcss.jpg" alt="">
-					<aside class="notes">
-						<ul>
-							<li>Dicteert source order</li>
-							<li>Volgorde o.b.v. specificiteit</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>ITCSS - structuur</h3>
-					<pre><code class="nohighlight">┌── settings/
+      </section>
+      <section>
+        <h3>Inconsistentie</h3>
+        <img src="img/knops.veel-knops.png" alt="" width="50%">
+        <br>
+        <small>Image credit:
+          <a href="https://www.smashingmagazine.com/atomic-design-workflow/">Smashing Magazine - Atomic Workflow</a>
+        </small>
+      </section>
+      <section>
+        <h3>Inconsistentie</h3>
+        <ul>
+          <li>Teveel variatie/uitzonderingen</li>
+          <li>Weinig consistentie</li>
+          <li>Verwarrend</li>
+        </ul>
+        <aside class="notes">
+            <ul>
+              <li>Veel variaties moeten maken van bepaalde patterns</li>
+              <li>Weinig consistentie, verwarrend en complex</li>
+              <li>Voor zowel developer als de bezoeker</li>
+            </ul>
+          </aside>
+      </section>
+      <section>
+        <h3>Inconsistentie</h3>
+        <ul>
+          <li>Overleg met klant en/of designers</li>
+          <li>Breng variaties en uitzonderingen terug</li>
+          <li>Creëer een systeem van logische keuzes</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+              <li>Overleg met ontwerp over consistentie en breng de hoeveelheid variaties terug</li>
+              <li>Benoem de variaties en waarom welke variatie in welke context gebruikt moet kunnen worden</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <img src="img/pull-hair.gif" height="622" alt="">
+        <aside class="notes">
+          <ul>
+            <li>Misschien is nu dit al je reactie?</li>
+            <li>Maar er is hulp!</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>CSS Components</h3>
+        <p>met behulp van:</p>
+        <ul>
+          <li>
+            <b>ITCSS</b>
+          </li>
+          <li>
+            <b>BEM</b>
+          </li>
+          <li>
+            <b>OOCSS (+ mixins)</b>
+          </li>
+          <li>
+            <b>Atomic Design</b>
+          </li>
+        </ul>
+        <aside class="notes">
+        </aside>
+      </section>
+      <section>
+        <img src="img/acronyms.gif" alt="" width="50%">
+      </section>
+      <section>
+        <h3>ITCSS</h3>
+        <p>Inverted Triangle CSS</p>
+        <img src="img/itcss.jpg" alt="">
+        <aside class="notes">
+          <ul>
+            <li>Dicteert source order</li>
+            <li>Volgorde o.b.v. specificiteit</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>ITCSS - structuur</h3>
+        <pre><code class="nohighlight">┌── settings/
 │   ├── colours.scss
 │   └── grid.scss
 ├── tools/
@@ -347,43 +407,46 @@ td { display: block; }
 │   └── article-list.scss
 └── trumps/
     └── helpers.scss</code></pre>
-				</section>
-				<section>
-					<h3>Zonder ITCSS</h3>
-					<img src="img/itcss-style-jumping.jpg" alt="" style="float: left; height: 300px;">
-					<img src="img/itcss-spec-graph-before.jpg" alt="" style="float: right; height: 300px;">
-					<aside class="notes">
-						<ul>
-							<li>Zonder ITCSS geen duidelijke volgorde in je stylesheet</li>
-							<li>Styling komt van verschillende onvoorspelbare plekken</li>
-							<li>Specificity volgt geen natuurlijke volgorde</li>
-							<li>Dalen na een specificity piek hebben mogelijk problemen met het overriden van properties uit een piek</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>Met ITCSS</h3>
-					<img src="img/itcss-style-ordering.jpg" alt="" style="float: left; height: 300px;">
-					<img src="img/itcss-spec-graph-after.jpg" alt="" style="float: right; height: 300px;">
-					<aside class="notes">
-						<ul>
-							<li>Met ITCSS betere volgorde obv specificity</li>
-							<li>Styling komt uit voorspelbare lagen</li>
-							<li>Specificity is beter geordend, waardoor minder problemen</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>Waarom ITCSS?</h3>
-					<ul>
-						<li>Vermindert problemen met <br>source order en specificity</li>
-						<li class="fragment">Verbetert gemak onderhoud <br>en doorontwikkeling</li>
-						<li class="fragment">Moedigt aan tot nadenken <br>scheiding objects en components</li>
-					</ul>
-				</section>
-				<section>
-					<h3>BEM - Block, Element, Modifier</h3>
-					<pre class="css"><code>/**
+      </section>
+      <section>
+        <h3>Zonder ITCSS</h3>
+        <img src="img/itcss-style-jumping.jpg" alt="" style="float: left; height: 300px;">
+        <img src="img/itcss-spec-graph-before.jpg" alt="" style="float: right; height: 300px;">
+        <aside class="notes">
+          <ul>
+            <li>Zonder ITCSS geen duidelijke volgorde in je stylesheet</li>
+            <li>Styling komt van verschillende onvoorspelbare plekken</li>
+            <li>Specificity volgt geen natuurlijke volgorde</li>
+            <li>Dalen na een specificity piek hebben mogelijk problemen met het overriden van properties uit een piek</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Met ITCSS</h3>
+        <img src="img/itcss-style-ordering.jpg" alt="" style="float: left; height: 300px;">
+        <img src="img/itcss-spec-graph-after.jpg" alt="" style="float: right; height: 300px;">
+        <aside class="notes">
+          <ul>
+            <li>Met ITCSS betere volgorde obv specificity</li>
+            <li>Styling komt uit voorspelbare lagen</li>
+            <li>Specificity is beter geordend, waardoor minder problemen</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Waarom ITCSS?</h3>
+        <ul>
+          <li>Vermindert problemen met
+            <br>source order en specificity</li>
+          <li class="fragment">Verbetert gemak onderhoud
+            <br>en doorontwikkeling</li>
+          <li class="fragment">Moedigt aan tot nadenken
+            <br>scheiding objects en components</li>
+        </ul>
+      </section>
+      <section>
+        <h3>BEM - Block, Element, Modifier</h3>
+        <pre class="css"><code>/**
  * Product item component
  */
 // Block
@@ -396,27 +459,27 @@ td { display: block; }
 // Modifiers
 .product--highlighted { [...] }
 .product__thumb--large { [...] }</code></pre>
-					<aside class="notes">
-						<ul>
-							<li>Block, Element, Modifier</li>
-							<li>Methodiek qua naamgeving van classes en components</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<img src="img/do-not-want.gif" alt="" height="622">
-					<aside class="notes">
-						<ul>
-							<li>Veelgehoorde opmerkingen:</li>
-							<li>Lelijk</li>
-							<li>Te lange classnames</li>
-							<li>Dubbele underscores en dashes in 1 classname</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>Blocks, Elements, Modifiers</h3>
-					<pre class="html"><code><article class="product product--highlighted">
+        <aside class="notes">
+          <ul>
+            <li>Block, Element, Modifier</li>
+            <li>Methodiek qua naamgeving van classes en components</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <img src="img/do-not-want.gif" alt="" height="622">
+        <aside class="notes">
+          <ul>
+            <li>Veelgehoorde opmerkingen:</li>
+            <li>Lelijk</li>
+            <li>Te lange classnames</li>
+            <li>Dubbele underscores en dashes in 1 classname</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Blocks, Elements, Modifiers</h3>
+        <pre class="html"><code><article class="product product--highlighted">
   <h1 class="product__title">
     Productnaam
   </h1>
@@ -430,51 +493,53 @@ td { display: block; }
     Voeg toe aan winkelwagen
   </button>
 </article></code></pre>
-					<aside class="notes">
-						<ul>
-							<li>Blocks zijn containers, het startpunt en afgrenzing van een component</li>
-							<li>Denk aan Blocks als Lego blokjes, meerdere Blocks bij elkaar vormen een groter geheel</li>
-							<li>Elements zijn children van Blocks</li>
-							<li>Modifiers zijn toepasbaar op Blocks en Elements</li>
-							<li>Modifiers zijn lichte varianten in presentatie</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>Voordelen van BEM</h3>
-					<ul>
-						<li>Verdeelt styling in componenten</li>
-						<li class="fragment">Uniforme naamgeving over hele codebase</li>
-						<li class="fragment">Relaties tussen elementen af te leiden uit HTML</li>
-						<li class="fragment">Lage specificty</li>
-					</ul>
-					<aside class="notes">
-						<ul>
-							<li>Moedigt aan tot ontleden van een ontwerp tot kleine herbruikbare componenten</li>
-							<li>Classnames in een stylesheet zijn uniform en uniek over alle componenten</li>
-							<li>Classes die beginnen met dezelfde block naam horen bij elkaar</li>
-							<li>Nauwelijks te hoeven nesten selectors</li>
-						</ul>
-					</aside>
-				</section>
-				<section><img src="img/nod-head.gif" height="660" alt=""></section>
-				<section>
-					<h3>OOCSS</h3>
-					<p>Object-oriented CSS</p>
-				</section>
-				<section>
-					<h3>OOCSS — principes</h3>
-					<ol>
-						<li>Separate containers from content</li>
-						<li>Separate structure from skin</li>
-					</ol>
-				</section>
-				<section>
-					<h3>Separate containers<br> from content</h3>
-					<table>
-						<tr>
-							<td>
-								<pre class="css"><code>/* Meh */
+        <aside class="notes">
+          <ul>
+            <li>Blocks zijn containers, het startpunt en afgrenzing van een component</li>
+            <li>Denk aan Blocks als Lego blokjes, meerdere Blocks bij elkaar vormen een groter geheel</li>
+            <li>Elements zijn children van Blocks</li>
+            <li>Modifiers zijn toepasbaar op Blocks en Elements</li>
+            <li>Modifiers zijn lichte varianten in presentatie</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Voordelen van BEM</h3>
+        <ul>
+          <li>Verdeelt styling in componenten</li>
+          <li class="fragment">Uniforme naamgeving over hele codebase</li>
+          <li class="fragment">Relaties tussen elementen af te leiden uit HTML</li>
+          <li class="fragment">Lage specificty</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Moedigt aan tot ontleden van een ontwerp tot kleine herbruikbare componenten</li>
+            <li>Classnames in een stylesheet zijn uniform en uniek over alle componenten</li>
+            <li>Classes die beginnen met dezelfde block naam horen bij elkaar</li>
+            <li>Nauwelijks te hoeven nesten selectors</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <img src="img/nod-head.gif" height="660" alt="">
+      </section>
+      <section>
+        <h3>OOCSS</h3>
+        <p>Object-oriented CSS</p>
+      </section>
+      <section>
+        <h3>OOCSS — principes</h3>
+        <ol>
+          <li>Separate containers from content</li>
+          <li>Separate structure from skin</li>
+        </ol>
+      </section>
+      <section>
+        <h3>Separate containers from content</h3>
+        <table>
+          <tr>
+            <td>
+              <pre class="css"><code>/* Meh */
 #sidebar h3 {
   font-size: 2em;
   color: #f30;
@@ -485,78 +550,79 @@ td { display: block; }
   color: #f30;
 }</code></pre>
 
-							</td>
-							<td>
-<pre class="css"><code>/* Beter */
+            </td>
+            <td>
+              <pre class="css"><code>/* Beter */
 .sub-heading {
   font-size: 2em;
   color: #f30;
 }</code></pre>
 
-							</td>
-						</tr>
-					</table>
-						<aside class="notes">
-							<ul>
-								<li>Zorg dat styling niet afhankelijk is van de locatie in je HTML</li>
-								<li>Houdt elementen zonder class hetzelfde en elementen met class krijgen de stijling</li>
-								<li>Bevordert hergebruik van classes in je project, eerste is niet herbruikbaar, tweede wel.</li>
-								<li>Zorgt ervoor dat je later geen properties hoeft te unsetten op elementen waar je de styling niet wilt</li>
-							</ul>
-						</aside>
-					</section>
-				<section>
-					<h3>Separate structure<br> from skin</h3>
-					<table>
-						<tr>
-							<td>
-								<pre class="css"><code>.btn-primary {
+            </td>
+          </tr>
+        </table>
+        <aside class="notes">
+          <ul>
+            <li>Zorg dat styling niet afhankelijk is van de locatie in je HTML</li>
+            <li>Houdt elementen zonder class hetzelfde en elementen met class krijgen de stijling</li>
+            <li>Bevordert hergebruik van classes in je project, eerste is niet herbruikbaar, tweede wel.</li>
+            <li>Zorgt ervoor dat je later geen properties hoeft te unsetten op elementen waar je de styling niet wilt</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Separate structure from skin</h3>
+        <table>
+          <tr>
+            <td>
+              <pre class="css"><code>.btn-primary {
   border: 2px solid orangered;
   border-radius: 3px;
-  padding: 6px 12px;
+  padding: .33em .66em;
   font-size: 1.2rem;
   font-weight: bold;
   background: orange;
 }</code></pre>
-							</td>
-							<td>
-								<pre class="css"><code>.btn-default {
+            </td>
+            <td>
+              <pre class="css"><code>.btn-default {
   border: 1px solid limegreen;
   border-radius: 3px;
-  padding: 5px 10px;
+  padding: .25em .5em;
   font-size: 1rem;
   font-weight: normal;
   background: lime;
 }</code></pre>
-							</td>
-						</tr>
-					</table>
-					<aside class="notes">
-						<ul>
-							<li>Classes kunnen uit visuele en structurele properties bestaan</li>
-							<li>Deze groepen kunnen van elkaar gescheiden worden tbv hergebruik op andere plekken</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>Separate structure<br> from skin</h3>
-					<table>
-						<tr>
-							<td>
-								<pre class="css"><code>/* Structure */
+            </td>
+          </tr>
+        </table>
+        <aside class="notes">
+          <ul>
+            <li>Classes kunnen uit visuele en structurele properties bestaan</li>
+            <li>Deze groepen kunnen van elkaar gescheiden worden tbv hergebruik op andere plekken</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Separate structure from skin</h3>
+        <table>
+          <tr>
+            <td>
+              <pre class="css"><code>/* Structure */
 .btn-medium {
   border: 1px solid;
-  padding: 5px 10px;
+  padding: .33em .66em;
 }
 
 .btn-large {
   border: 2px solid;
-  padding: 6px 12px;
+  padding: .25em .5em;
 }
 
 </code></pre>
-							</td>
-							<td><pre class="css"><code>/* Skin */
+            </td>
+            <td>
+              <pre class="css"><code>/* Skin */
 .btn-primary {
   border-color: orangered;
   font-size: 1.2rem;
@@ -570,36 +636,37 @@ td { display: block; }
   font-weight: normal;
   background-color: lime;
 }</code></pre>
-							</td>
-						</tr>
-					</table>
-					<aside class="notes">
-						<ul>
-							<li>Scheid type properties van elkaar</li>
-							<li>Mix 'n match classes met elkaar voor extra variatie</li>
-							<li>Structuur en uiterlijk zijn gescheiden</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>OOCSS Mixins</h3>
-					<table>
-						<tr>
-							<td>
-								<pre class="sass"><code>/* Structure */
+            </td>
+          </tr>
+        </table>
+        <aside class="notes">
+          <ul>
+            <li>Scheid type properties van elkaar</li>
+            <li>Mix 'n match classes met elkaar voor extra variatie</li>
+            <li>Structuur en uiterlijk zijn gescheiden</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>OOCSS Mixins</h3>
+        <table>
+          <tr>
+            <td>
+              <pre class="sass"><code>/* Structure */
 @mixin btn-medium {
   border: 1px solid;
-  padding: 5px 10px;
+  padding: .33em .66em;
 }
 
 @mixin btn-large {
   border: 2px solid;
-  padding: 6px 12px;
+  padding: .25em .5em;
 }
 
 </code></pre>
-							</td>
-							<td><pre class="sass"><code>/* Skin */
+            </td>
+            <td>
+              <pre class="sass"><code>/* Skin */
 @mixin btn-primary {
   border-color: orangered;
   font-size: 1.2rem;
@@ -613,102 +680,172 @@ td { display: block; }
   font-weight: normal;
   background-color: lime;
 }</code></pre>
-							</td>
-							<td>
-								<pre class="css"><code>.btn-cta {
+            </td>
+          </tr></table>
+        <aside class="notes">
+          <ul>
+            <li>Verplaats losse OOCSS classes naar mixins en stel hiermee classes samen</li>
+            <li>Composition over inheritance</li>
+            <li>Geeft je de mogelijkheid beschrijvende namen te geven aan je class ipv generieke namen als
+              <code>.btn.btn-primary.btn-large</code>
+            </li>
+            <li>Geen meerdere classes nodig, alle styling zit in 1 class</li>
+            <li>Houdt je HTML en CSS stricter gescheiden, minder tot geen class clutter</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>OOCSS Mixins</h3>
+              <pre class="css"><code>.btn-cta {
   @include btn-large;
   @include btn-primary;
-}</code></pre>
-								<pre class="html"><code><button class="btn-cta">
+}</code></pre><br>
+              <pre class="html"><code><button class="btn-cta">
   Klik hier
 </button></code></pre>
-							</td>
-						</tr>
-					</table>
-					<aside class="notes">
-						<ul>
-							<li>Verplaats losse OOCSS classes naar mixins en stel hiermee classes samen</li>
-							<li>Composition over inheritance</li>
-							<li>Geeft je de mogelijkheid beschrijvende namen te geven aan je class ipv generieke namen als <code>.btn.btn-primary.btn-large</code></li>
-							<li>Geen meerdere classes nodig, alle styling zit in 1 class</li>
-							<li>Houdt je HTML en CSS stricter gescheiden, minder tot geen class clutter</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>OOCSS Mixins<br>extra voordelen</h3>
-					<ul>
-						<li>Styling zit volledig in CSS ipv verweven met HTML</li>
-						<li class="fragment">Ongebruikte mixins genereren ook geen output meer</li>
-						<li class="fragment">Gzip kan herhaalde properties <b><i>veel beter</i></b> comprimeren<br>
-							dan herhaalde selectors <sup>[1]</sup></li>
-						<li class="fragment">Simpliciteit van CSS output is hoger <sup>[1]</sup></li>
-					</ul>
-					<p class="fragment">
-						<small>[1] <a href="https://tech.bellycard.com/blog/sass-mixins-vs-extends-the-data/">Sass Mixins vs Extends: The Data</a></small>
-					</p>
-					<aside class="notes">
-						<ul>
-							<li>In geval van redesigns stukken minder HTML aan te passen<br> omdat alle styling in de CSS is verwerkt ipv in de HTML</li>
-							<li>Gzip maakt korte metten met gedupliceerde properties, output is zelfs kleiner dan via @extends <sup>[1]</sup></li>
-							<li>Simpliciteit van output is vele malen hoger <sup>[1]</sup></li>
-							<li>Ongebruikte mixins genereren ook geen output meer</li>
-						</ul>
-					</aside>
-				</section>
-				<section>
-					<h3>Conclusie</h3>
-					<ul>
-						<li>Maak slim gebruik van de features van CSS</li>
-						<li class="fragment">Schrijf niet teveel CSS</li>
-						<li class="fragment">Structureer je stylesheet voor voorspelbaarheid</li>
-						<li class="fragment">Zorg voor uniforme code style in je project</li>
-						<li class="fragment">Ontleed pagina's in herbruikbare componenten</li>
-						<li class="fragment">Ontleed je componenten in herbruikbare mixins</li>
-					</ul>
-				</section>
-				<section>
-					<h3>Vragen?</h3>
-					<img src="img/vragen.gif" alt="">
-				</section>
-			</div>
-		</div>
+        </table>
+      </section>
+      <section>
+        <h3>
+          OOCSS Mixins
+        </h3>
+        <p>
+          <b>Extra voordelen:</b>
+        </p>
+        <ul>
+          <li>Styling zit volledig in CSS ipv verweven met HTML</li>
+          <li class="fragment">Ongebruikte mixins genereren ook geen output meer</li>
+          <li class="fragment">Gzip kan herhaalde CSS properties
+            <b>
+              <i>veel beter</i>
+            </b> comprimeren
+            <br> dan herhaalde selectors
+            <sup>[1]</sup>
+          </li>
+          <li class="fragment">Simpliciteit van CSS output is hoger
+            <sup>[1]</sup>
+            <br>
+            <small>Meer <i>rules</i>, minder <i>selectors</i></small>
+          </li>
+        </ul>
+        <p class="fragment">
+          <small>[1]
+            <a href="https://tech.bellycard.com/blog/sass-mixins-vs-extends-the-data/">Sass Mixins vs Extends: The Data</a>
+          </small>
+        </p>
+        <aside class="notes">
+          <ul>
+            <li>In geval van redesigns stukken minder HTML aan te passen
+              <br> omdat alle styling in de CSS is verwerkt ipv in de HTML</li>
+            <li>Gzip maakt korte metten met gedupliceerde properties, output is zelfs kleiner dan via @extends
+              <sup>[1]</sup>
+            </li>
+            <li>Simpliciteit van output is vele malen hoger
+              <sup>[1]</sup>
+            </li>
+            <li>Ongebruikte mixins genereren ook geen output meer</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h2>Atomic Design</h2>
+        <blockquote>
+          <p>We’re not designing pages, <br>we’re designing systems of components.</p>
+          <p>
+            <cite><a href="http://bradfrost.com/blog/mobile/bdconf-stephen-hay-presents-responsive-design-workflow/">Stephen Hay &ndash; Responsive Design Workflow</a></cite>
+          </p>
+        </blockquote>
+      </section>
+      <section>
+        <h3>Atomic Design</h3>
+        <ul>
+          <li>Ontleed pagina's in templates</li>
+          <li>Ontleed templates in componenten</li>
+          <li>Ontleed componenten in "legosteentjes"</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Ontleedt pagina's in kleinere componenten (atoms)</li>
+            <li>Stel grotere componenten samen obv kleinere (molecules/organisms)</li>
+            <li>Stel templates samen obv componenten (templates/pages)</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Atomic Design</h3>
+        <ul>
+          <li>Atoms</li>
+          <li>Molecules</li>
+          <li>Organisms</li>
+          <li>Templates</li>
+          <li>Pages</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Atoms</h3>
+        <p>Wat zijn atoms?</p>
+      </section>
+      <section>
+        <h3>Atoms</h3>
+        <ul>
+          <li>Kleinste onderdelen van een pagina</li>
+          <li>Zoals: tekst, links, buttons, headings</li>
+          <li>Kan niet kleiner gemaakt worden zonder functie te verliezen</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Conclusie</h3>
+        <ul>
+          <li>Maak slim gebruik van de features van CSS</li>
+          <li class="fragment">Schrijf niet teveel CSS</li>
+          <li class="fragment">Structureer je stylesheet voor voorspelbaarheid</li>
+          <li class="fragment">Zorg voor uniforme code style in je project</li>
+          <li class="fragment">Ontleed pagina's in herbruikbare componenten</li>
+          <li class="fragment">Ontleed je componenten in herbruikbare mixins</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Vragen?</h3>
+        <img src="img/vragen.gif" alt="">
+      </section>
+    </div>
+  </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				slideNumber: true,
-				history: true,
+  <script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      slideNumber: true,
+      history: true,
 
-				width: 1240,
-				margin: 0.1,
+      width: 1240,
+      margin: 0.1,
 
-				transition: 'fade',
-				transitionSpeed: 'fast',
+      transition: 'fade',
+      transitionSpeed: 'fast',
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [{
-						src: 'plugin/markdown/marked.js'
-					},
-					{
-						src: 'plugin/markdown/markdown.js'
-					},
-					{
-						src: 'plugin/notes/notes.js',
-						async: true
+      // More info https://github.com/hakimel/reveal.js#dependencies
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        {
+          src: 'plugin/markdown/markdown.js'
+        },
+        {
+          src: 'plugin/notes/notes.js',
+          async: true
 					}, {
-						src: 'plugin/highlight/highlight.js',
-						async: true,
-						callback: function() {
-							hljs.initHighlightingOnLoad();
-						}
-					}
-				]
-			});
-		</script>
-	</body>
+          src: 'plugin/highlight/highlight.js',
+          async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }
+      ]
+    });
+  </script>
+</body>
 
 </html>
