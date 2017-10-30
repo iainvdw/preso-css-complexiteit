@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1471" height="361" viewBox="0 0 1471 361">
+  <g fill="none" fill-rule="evenodd" transform="translate(7 5)">
+    <g stroke="#222222" stroke-width="8" transform="translate(1267)">
+      <polygon points="192.4 0 24.6 0 24.6 24.5 120.4 24.5 168 70.6 168 221 192.4 221"/>
+      <polyline points="121.1 24.5 .1 24.5 .1 245.5 168 245.5 168 76.9"/>
+      <polygon points="122.9 30.9 123 71 162.6 71.2"/>
+    </g>
+    <g stroke="#222222" stroke-width="9" transform="translate(953)">
+      <g transform="translate(33)">
+        <polyline points="162.7 6 162.7 0 156.7 0"/>
+        <path d="M145.1,0 L12.1,0" stroke-dasharray="11.572 11.572"/>
+        <polyline points="6.3 0 .3 0 .3 6"/>
+        <path d="M0.3,12.4 L0.3,21.9" stroke-dasharray="6.377 6.377"/>
+        <polyline points=".3 25.1 .3 31.1 6.3 31.1"/>
+        <path d="M19.4,31.1 L117.7,31.1" stroke-dasharray="13.105 13.105"/>
+        <polyline points="124.2 31.1 130.2 31.1 130.2 37.1"/>
+        <path d="M130.2,48.5 L130.2,202.2" stroke-dasharray="11.382 11.382"/>
+        <polyline points="130.2 207.9 130.2 213.9 136.2 213.9"/>
+        <path d="M143.1,213.9 L153.3,213.9" stroke-dasharray="6.829 6.829"/>
+        <polyline points="157.7 213.9 162.7 213.9 162.7 208.9"/>
+        <path d="M162.7,196 L162.7,11.9" stroke-dasharray="11.874 11.874"/>
+      </g>
+      <g transform="translate(0 31)">
+        <polyline points="33.3 4.4 33.3 .1 27.3 .1"/>
+        <path d="M20.5,0.1 L10.2,0.1" stroke-dasharray="6.829 6.829"/>
+        <polyline points="6.8 .1 .8 .1 .8 6.1"/>
+        <path d="M0.8,18 L0.8,202.1" stroke-dasharray="11.875 11.875"/>
+        <polyline points=".8 208 .8 214 6.8 214"/>
+        <path d="M18.4,214 L151.4,214" stroke-dasharray="11.572 11.572"/>
+        <polyline points="157.2 214 163.2 214 163.2 208"/>
+        <path d="M163.2,201.6 L163.2,192.1" stroke-dasharray="6.378 6.378"/>
+        <polyline points="163.2 188.9 163.2 182.9 159.8 182.9"/>
+      </g>
+    </g>
+    <g transform="translate(602 29)">
+      <circle cx="29.6" cy="30.2" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="29.6" cy="30.2" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="92.5" cy="30.2" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="92.5" cy="30.2" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="155.5" cy="30.2" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="155.5" cy="30.2" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="219.2" cy="30.2" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="219.2" cy="30.2" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="29.6" cy="93.2" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="29.6" cy="93.2" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="92.5" cy="93.2" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="92.5" cy="93.2" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="155.5" cy="93.2" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="155.5" cy="93.2" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="219.2" cy="93.2" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="219.2" cy="93.2" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="29.6" cy="156.1" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="29.6" cy="156.1" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="92.5" cy="156.1" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="92.5" cy="156.1" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="155.5" cy="156.1" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="155.5" cy="156.1" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="219.2" cy="156.1" r="29.3" stroke="#222222" stroke-width="11"/>
+      <circle cx="219.2" cy="156.1" r="16.9" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="60.7" cy="30.2" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="29.6" cy="61.8" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="94" cy="61.8" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="156.2" cy="61.8" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="219.2" cy="61.8" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="29.6" cy="124.7" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="94" cy="124.7" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="156.2" cy="124.7" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="219.2" cy="124.7" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="123.6" cy="30.2" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="187.3" cy="30.2" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="60.7" cy="91.7" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="123.6" cy="91.7" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="187.3" cy="91.7" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="60.7" cy="154.6" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="123.6" cy="154.6" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="187.3" cy="154.6" r="8.1" fill="#F4004D" fill-rule="nonzero"/>
+    </g>
+    <g transform="translate(282 25)">
+      <g transform="translate(0 96)">
+        <circle cx="50" cy="49.3" r="49.3" stroke="#222222" stroke-width="15"/>
+        <circle cx="50" cy="49.3" r="28.4" fill="#F4004D" fill-rule="nonzero"/>
+      </g>
+      <g transform="translate(56)">
+        <circle cx="49.5" cy="49.5" r="49.3" stroke="#222222" stroke-width="15"/>
+        <circle cx="49.5" cy="49.5" r="28.4" fill="#F4004D" fill-rule="nonzero"/>
+      </g>
+      <g transform="translate(112 96)">
+        <circle cx="49.3" cy="49.3" r="49.3" stroke="#222222" stroke-width="15"/>
+        <circle cx="49.3" cy="49.3" r="28.4" fill="#F4004D" fill-rule="nonzero"/>
+      </g>
+      <circle cx="74.6" cy="106.5" r="12.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="98.6" cy="146.1" r="12.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="111.9" cy="146.1" r="12.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="138.1" cy="106" r="12.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="81.4" cy="91" r="12.1" fill="#F4004D" fill-rule="nonzero"/>
+      <circle cx="132.9" cy="91.8" r="12.1" fill="#F4004D" fill-rule="nonzero"/>
+    </g>
+    <g transform="translate(0 31)">
+      <circle cx="92.3" cy="91.6" r="91.6" stroke="#222222" stroke-width="15"/>
+      <circle cx="92.3" cy="91.6" r="52.8" fill="#F4004D" fill-rule="nonzero"/>
+      <path fill="#F4004D" fill-rule="nonzero" d="M186.9,34.8 C186.9,47.2 176.9,57.2 164.5,57.2 C152.1,57.2 142.1,47.2 142.1,34.8 C142.1,22.4 152.1,12.4 164.5,12.4 C176.8,12.4 186.9,22.4 186.9,34.8 Z"/>
+    </g>
+    <g fill="#F4004D" fill-rule="nonzero" transform="translate(228 106)">
+      <polygon points="15.3 15 0 29.6 0 .4"/>
+      <polygon points="326.3 15 311 29.6 311 .4"/>
+      <polygon points="682.3 15 667 29.6 667 .4"/>
+      <polygon points="988.3 15 973 29.6 973 .4"/>
+    </g>
+    <text fill="#4B4B4B" font-family="OpenSans-Semibold, Open Sans" font-size="48" font-weight="500">
+      <tspan x="21.355" y="344">atoms</tspan>
+    </text>
+    <text fill="#4B4B4B" font-family="OpenSans-Semibold, Open Sans" font-size="48" font-weight="500">
+      <tspan x="270.055" y="344">molecules</tspan>
+    </text>
+    <text fill="#4B4B4B" font-family="OpenSans-Semibold, Open Sans" font-size="48" font-weight="500">
+      <tspan x="605.984" y="344">organisms</tspan>
+    </text>
+    <text fill="#4B4B4B" font-family="OpenSans-Semibold, Open Sans" font-size="48" font-weight="500">
+      <tspan x="935.281" y="344">templates</tspan>
+    </text>
+    <text fill="#4B4B4B" font-family="OpenSans-Semibold, Open Sans" font-size="48" font-weight="500">
+      <tspan x="1295.766" y="344">pages</tspan>
+    </text>
+  </g>
+</svg>

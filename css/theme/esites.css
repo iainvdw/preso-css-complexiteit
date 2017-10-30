@@ -13,6 +13,8 @@
 .slide-background {
   background: 50% 50% no-repeat;
   background-size: cover; }
+  .slide-background:not(:first-child):not([class*="bg-"]) {
+    background: url(../../img/e-sites-mark.svg) left 2vw bottom 2vw no-repeat; }
   .slide-background.bg-why {
     background-size: cover;
     background-image: url(../../img/but-why-2.gif); }
@@ -117,9 +119,10 @@ body {
 .reveal ol,
 .reveal dl,
 .reveal ul {
-  display: inline-block;
+  display: block;
   text-align: left;
-  margin: 0 0 0 1em; }
+  margin: 20px auto;
+  max-width: 60vw; }
 
 .reveal ol {
   list-style-type: decimal; }

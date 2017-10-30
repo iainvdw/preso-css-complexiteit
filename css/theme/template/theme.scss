@@ -94,10 +94,10 @@ body {
 .reveal ol,
 .reveal dl,
 .reveal ul {
-	display: inline-block;
-
+	display: block;
 	text-align: left;
-	margin: 0 0 0 1em;
+	margin: $blockMargin auto;
+	max-width: 60vw;
 }
 
 .reveal ol {

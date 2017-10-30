@@ -34,15 +34,20 @@
           Iain van der Wiel
           <br />
           <small>
-            Senior front-end developer @ E-sites te Breda
+            Senior front-end developer
             <br>
-            <a href="https://twitter.com/iain_vdw" class="profile-link">
+            <a href="https://twitter.com/iain_vdw" class="profile-link" target="_blank" rel="noopener">
               <img src="img/twitter.svg" alt="Twitter" width="24" height="24"> @iain_vdw
             </a>
-            <a href="https://github.com/iainvdw/" class="profile-link">
+            <a href="https://github.com/iainvdw/" class="profile-link" target="_blank" rel="noopener">
               <img src="img/github.svg" alt="Github" width="24" height="24"> @iainvdw
             </a>
           </small>
+          <br>
+          <br>
+          <a href="https://e-sites.nl/" class="profile-link" target="_blank" rel="noopener">
+            <img src="img/e-sites.svg" alt="E-sites" width="300" height="75">
+          </a>
         </p>
       </section>
       <section>
@@ -311,15 +316,15 @@ td {
         <img src="img/knops.veel-knops.png" alt="" width="50%">
         <br>
         <small>Image credit:
-          <a href="https://www.smashingmagazine.com/atomic-design-workflow/">Smashing Magazine - Atomic Workflow</a>
+          <a href="https://www.smashingmagazine.com/atomic-design-workflow/" target="_blank" rel="noopener">Smashing Magazine - Atomic Workflow</a>
         </small>
       </section>
       <section>
         <h3>Inconsistentie</h3>
         <ul>
-          <li>Teveel variatie/uitzonderingen</li>
-          <li>Weinig consistentie</li>
-          <li>Verwarrend</li>
+          <li>Veel onnodige variantie</li>
+          <li>Tekstgrootte, kleurgebruik, functionaliteit</li>
+          <li>Verwarrend!</li>
         </ul>
         <aside class="notes">
             <ul>
@@ -355,7 +360,7 @@ td {
       <section>
         <h3>CSS Components</h3>
         <p>met behulp van:</p>
-        <ul>
+        <ul style="display: inline-block;">
           <li>
             <b>ITCSS</b>
           </li>
@@ -373,7 +378,7 @@ td {
         </aside>
       </section>
       <section>
-        <img src="img/acronyms.gif" alt="" width="50%">
+        <img src="img/acronyms.gif" alt="" height="622">
       </section>
       <section>
         <h3>ITCSS</h3>
@@ -437,11 +442,11 @@ td {
         <h3>Waarom ITCSS?</h3>
         <ul>
           <li>Vermindert problemen met
-            <br>source order en specificity</li>
+            source order en specificity</li>
           <li class="fragment">Verbetert gemak onderhoud
-            <br>en doorontwikkeling</li>
+            en doorontwikkeling</li>
           <li class="fragment">Moedigt aan tot nadenken
-            <br>scheiding objects en components</li>
+            scheiding objects en components</li>
         </ul>
       </section>
       <section>
@@ -718,8 +723,7 @@ td {
           <li class="fragment">Gzip kan herhaalde CSS properties
             <b>
               <i>veel beter</i>
-            </b> comprimeren
-            <br> dan herhaalde selectors
+            </b> comprimeren dan herhaalde selectors
             <sup>[1]</sup>
           </li>
           <li class="fragment">Simpliciteit van CSS output is hoger
@@ -730,7 +734,7 @@ td {
         </ul>
         <p class="fragment">
           <small>[1]
-            <a href="https://tech.bellycard.com/blog/sass-mixins-vs-extends-the-data/">Sass Mixins vs Extends: The Data</a>
+            <a href="https://tech.bellycard.com/blog/sass-mixins-vs-extends-the-data/" target="_blank" rel="noopener">Sass Mixins vs Extends: The Data</a>
           </small>
         </p>
         <aside class="notes">
@@ -752,7 +756,7 @@ td {
         <blockquote>
           <p>We’re not designing pages, <br>we’re designing systems of components.</p>
           <p>
-            <cite><a href="http://bradfrost.com/blog/mobile/bdconf-stephen-hay-presents-responsive-design-workflow/">Stephen Hay &ndash; Responsive Design Workflow</a></cite>
+            <cite><a target="_blank" rel="noopener" href="http://bradfrost.com/blog/mobile/bdconf-stephen-hay-presents-responsive-design-workflow/">Stephen Hay &ndash; Responsive Design Workflow</a></cite>
           </p>
         </blockquote>
       </section>
@@ -760,9 +764,10 @@ td {
         <h3>Atomic Design</h3>
         <ul>
           <li>Ontleed pagina's in templates</li>
-          <li>Ontleed templates in componenten</li>
-          <li>Ontleed componenten in "legosteentjes"</li>
+          <li class="fragment">Ontleed templates in componenten</li>
+          <li class="fragment">Ontleed componenten in "legosteentjes"</li>
         </ul>
+        <img src="img/atomic-design.svg" alt="Atomic Design" style="max-width: 720px; background: #eee; border-width: 20px;" class="fragment">
         <aside class="notes">
           <ul>
             <li>Ontleedt pagina's in kleinere componenten (atoms)</li>
@@ -772,25 +777,87 @@ td {
         </aside>
       </section>
       <section>
-        <h3>Atomic Design</h3>
+        <h3>Atoms</h3>
         <ul>
-          <li>Atoms</li>
-          <li>Molecules</li>
-          <li>Organisms</li>
-          <li>Templates</li>
-          <li>Pages</li>
+          <li>Bouwstenen van het design system</li>
+          <li class="fragment">Basis HTML-elementen</li>
+          <li class="fragment">Componenten die niet kleiner kunnen</li>
         </ul>
+        <aside class="notes">
+          <ul>
+            <li>Basiscomponenten van een pagina</li>
+            <li>Typografie, formulierelementen, lists, tables, etc.</li>
+            <li>Kunnen niet kleiner gemaakt worden zonder functie te verliezen</li>
+          </ul>
+        </aside>
       </section>
       <section>
-        <h3>Atoms</h3>
-        <p>Wat zijn atoms?</p>
-      </section>
-      <section>
-        <h3>Atoms</h3>
+        <h3>Molecules</h3>
         <ul>
-          <li>Kleinste onderdelen van een pagina</li>
-          <li>Zoals: tekst, links, buttons, headings</li>
-          <li>Kan niet kleiner gemaakt worden zonder functie te verliezen</li>
+          <li>Simpelere componenten</li>
+          <li class="fragment">Bestaan uit meerdere atoms</li>
+          <li class="fragment">Verantwoordelijk voor klein deel interface</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Kleinere componenten op een pagina, zoals bv. een menu (lijst met links), hero visual (afbeelding met tekst).</li>
+            <li>Bevatten twee of meer atomen</li>
+            <li>Functioneren als geheel</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Organisms</h3>
+        <ul>
+          <li>Complexere componenten van een pagina</li>
+          <li class="fragment">Groepen van molecules of atoms</li>
+          <li class="fragment">Verantwoordelijk grotere delen interface</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Bv. header, complexe formulieren, filters van productenlijst</li>
+            <li>Vormen "lagen" binnen de interface</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Templates</h3>
+        <ul>
+          <li>Samengesteld uit molecules en organisms</li>
+          <li class="fragment">Definiëren van contentstructuur</li>
+          <li class="fragment">Wat wordt de vorm van de content?</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Invulling van verschillende pagina's wordt duidelijk</li>
+            <li>Blauwdruk voor content, placeholders</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Pages</h3>
+        <ul>
+          <li>Invulling templates met "echte" content</li>
+          <li class="fragment">Dit is wat de bezoeker te zien krijgt</li>
+          <li class="fragment">Meest concreet van het design system</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Het moment om variaties in invulling van content te testen</li>
+            <li>Lange titels</li>
+            <li>Lege of gevulde winkelmandjes</li>
+            <li>Verschillen tussen gebruikersrollen van een applicatie (dashboard)</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Waarom Atomic Design?</h3>
+        <ul>
+          <li>Bevordert consistentie</li>
+          <li class="fragment">Aanmoedigen hergebruik</li>
+          <li class="fragment">Elimineert uitzonderingen</li>
+          <li class="fragment">Testen van afzonderlijke onderdelen</li>
+          <li class="fragment">Definiëren van verantwoordelijkheden</li>
         </ul>
       </section>
       <section>
