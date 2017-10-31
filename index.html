@@ -132,10 +132,10 @@
         <h2>Specificity</h2>
         <ol>
           <li>Elementen &amp; pseudo-elementen <br><pre>
-            <code>::before</code>
+            <code>::before, ::after</code>
           </pre></li>
           <li>Classes &amp; pseudo-classes <br><pre>
-            <code>:hover</code>
+            <code>:hover, :focus, </code>
           </pre></li>
           <li>ID's</li>
           <li>Inline styles</li>
@@ -792,11 +792,15 @@ td {
         </aside>
       </section>
       <section>
+        <h3>Atoms</h3>
+        <img src="img/atomic-design-atoms.png" alt="Losse formulier elementen">
+      </section>
+      <section>
         <h3>Molecules</h3>
         <ul>
           <li>Simpelere componenten</li>
           <li class="fragment">Bestaan uit meerdere atoms</li>
-          <li class="fragment">Verantwoordelijk voor klein deel interface</li>
+          <li class="fragment">Verantwoordelijk voor klein deel van een interface</li>
         </ul>
         <aside class="notes">
           <ul>
@@ -807,11 +811,15 @@ td {
         </aside>
       </section>
       <section>
+        <h3>Molecules</h3>
+        <img src="img/atomic-design-molecules.png" alt="Een simpel formulier bestaande uit een paar velden en een verzendknop">
+      </section>
+      <section>
         <h3>Organisms</h3>
         <ul>
           <li>Complexere componenten van een pagina</li>
           <li class="fragment">Groepen van molecules of atoms</li>
-          <li class="fragment">Verantwoordelijk grotere delen interface</li>
+          <li class="fragment">Verantwoordelijk voor grotere delen van een interface</li>
         </ul>
         <aside class="notes">
           <ul>
@@ -821,11 +829,15 @@ td {
         </aside>
       </section>
       <section>
+        <h3>Organisms</h3>
+        <img src="img/atomic-design-organisms.png" alt="Een balk met filteropties voor producten" width="300">
+      </section>
+      <section>
         <h3>Templates</h3>
         <ul>
           <li>Samengesteld uit molecules en organisms</li>
           <li class="fragment">Definiëren van contentstructuur</li>
-          <li class="fragment">Wat wordt de vorm van de content?</li>
+          <li class="fragment">Wat wordt de <b><u>vorm</u></b> van de content?</li>
         </ul>
         <aside class="notes">
           <ul>
@@ -835,9 +847,14 @@ td {
         </aside>
       </section>
       <section>
+        <h3>Templates</h3>
+        <img src="img/atomic-design-templates.png" alt="Een screenshot van een webpagina template" width="450">
+      </section>
+      <section>
         <h3>Pages</h3>
         <ul>
           <li>Invulling templates met "echte" content</li>
+          <li class="fragment">Checken waar het design wringt</li>
           <li class="fragment">Dit is wat de bezoeker te zien krijgt</li>
           <li class="fragment">Meest concreet van het design system</li>
         </ul>
@@ -851,24 +868,52 @@ td {
         </aside>
       </section>
       <section>
-        <h3>Waarom Atomic Design?</h3>
+        <h3>Pages</h3>
+        <img src="img/atomic-design-pages.png" alt="Een screenshot van een webpagina" width="450">
+      </section>
+      <section>
+        <h3>Dit is Atomic Design</h3>
+        <ul>
+          <li><b>Atoms</b> kleinste onderdelen van een pagina, kunnen niet kleiner gemaakt worden zonder functionaliteit te verliezen</li>
+          <li><b>Molecules</b> eenvoudige componenten samengesteld uit atoms</li>
+          <li><b>Organisms</b> complexere onderdelen of "lagen" van een interface</li>
+          <li><b>Templates</b> blauwdruk van de contentstructuur van de componenten op een pagina</li>
+          <li><b>Pages</b> templates testen met invullen en variaties in content</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li></li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h3>Voordelen Atomic Design</h3>
         <ul>
           <li>Bevordert consistentie</li>
           <li class="fragment">Aanmoedigen hergebruik</li>
           <li class="fragment">Elimineert uitzonderingen</li>
           <li class="fragment">Testen van afzonderlijke onderdelen</li>
-          <li class="fragment">Definiëren van verantwoordelijkheden</li>
+          <li class="fragment">Helpt bij definiëren van verantwoordelijkheden</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Wanneer Atomic Design?</h3>
+        <ul>
+          <li class="fragment">Groot team</li>
+          <li class="fragment">Langdurend project</li>
+          <li class="fragment">Veel doorontwikkeling / onderhoud</li>
+          <li class="fragment">Veel verschillende componenten</li>
         </ul>
       </section>
       <section>
         <h3>Conclusie</h3>
         <ul>
           <li>Maak slim gebruik van de features van CSS</li>
-          <li class="fragment">Schrijf niet teveel CSS</li>
-          <li class="fragment">Structureer je stylesheet voor voorspelbaarheid</li>
-          <li class="fragment">Zorg voor uniforme code style in je project</li>
+          <li class="fragment">Structureer je stylesheet met ITCSS</li>
+          <li class="fragment">Structureer je componenten met BEM</li>
+          <li class="fragment">Ontleed gedeelde styles in mixins</li>
           <li class="fragment">Ontleed pagina's in herbruikbare componenten</li>
-          <li class="fragment">Ontleed je componenten in herbruikbare mixins</li>
+          <li class="fragment">Maak een design system van componenten</li>
         </ul>
       </section>
       <section>
@@ -903,7 +948,8 @@ td {
         {
           src: 'plugin/notes/notes.js',
           async: true
-					}, {
+        },
+        {
           src: 'plugin/highlight/highlight.js',
           async: true,
           callback: function () {
