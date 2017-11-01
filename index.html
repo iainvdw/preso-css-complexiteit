@@ -49,6 +49,13 @@
             <img src="img/e-sites.svg" alt="E-sites" width="300" height="75">
           </a>
         </p>
+        <aside class="notes">
+          <ul>
+            <li>E-sites Breda</li>
+            <li>Full-service digitaal bureau</li>
+            <li>Websites, webshops, mobile apps, online marketing</li>
+          </ul>
+        </aside>
       </section>
       <section>
         <h2>CSS schrijven
@@ -70,7 +77,7 @@
         <h2>...maar
           <br>niet makkelijk</h2>
         <aside class="notes">
-          Maar...
+          Hoe groter het project, hoe lastiger het wordt om schaalbare CSS te schrijven.
         </aside>
       </section>
       <section class="bg-why">
@@ -118,7 +125,38 @@
         </aside>
       </section>
       <section>
+        <h2>Specificity</h2>
+        <ol>
+          <li>Elementen &amp; pseudo-elementen <br><pre>
+            <code>:before, :after</code>
+          </pre></li>
+          <li class="fragment">Classes &amp; pseudo-classes <br><pre>
+            <code>:hover, :focus</code>
+          </pre></li>
+          <li class="fragment">ID's</li>
+          <li class="fragment">Inline styles</li>
+          <li class="fragment"><code>!important</code></li>
+        </ol>
+        <aside class="notes">
+          <ul>
+            <li>Gewicht per selector</li>
+            <li>Inline &gt; IDs &gt; classes &gt; elements</li>
+            <li>Hoge specificteit kan problemen opleveren in onderhoud en doorontwikkeling</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
         <h2>Cascade</h2>
+        <ol>
+          <li>User agent <code>!important</code></li>
+          <li class="fragment">User <code>!important</code></li>
+          <li class="fragment">Author <code>!important</code></li>
+          <li class="fragment">CSS animations <sup>[1]</sup></li>
+          <li class="fragment">Author</li>
+          <li class="fragment">User</li>
+          <li class="fragment">User agent</li>
+        </ol>
+        <small class="fragment">[1] Maken niet direct onderdeel uit van de cascade, pas wanneer animaties lopen.</small>
         <aside class="notes">
           <ul>
             <li>Bepaalt welke properties uit welke stylesheets toegepast worden</li>
@@ -129,26 +167,43 @@
         </aside>
       </section>
       <section>
-        <h2>Specificity</h2>
-        <ol>
-          <li>Elementen &amp; pseudo-elementen <br><pre>
-            <code>::before, ::after</code>
-          </pre></li>
-          <li>Classes &amp; pseudo-classes <br><pre>
-            <code>:hover, :focus, </code>
-          </pre></li>
-          <li>ID's</li>
-          <li>Inline styles</li>
-          <li><code>!important</code></li>
-        </ol>
-        <aside class="notes">
-          <ul>
-            <li>Gewicht per selector</li>
-            <li>Inline &gt; IDs &gt; classes &gt; elements</li>
-            <li>Hoge specificteit kan problemen opleveren in onderhoud en doorontwikkeling</li>
-          </ul>
-        </aside>
+        <h2>Cascade</h2>
+        <table>
+          <tr>
+            <td>
+              <p>User-agent CSS:</p>
+              <pre><code>li { 
+  margin-left: 10px 
+}</code></pre>
+
+            </td>
+            <td>
+        <p>Author CSS:</p>
+        <pre><code>/* Reset */
+li { 
+  margin-left: 0 
+}
+
+@media screen {
+  li { 
+    margin-left: 3px
+  }
+}</code></pre>
+
+            </td>
+            <td>
+        <p>User CSS:</p>
+
+<pre><code>.specific { 
+  margin-left: 1em 
+}</code></pre>
+
+            </td>
+          </tr>
+        </table>
+
       </section>
+
       <section>
         <h2>Inheritance</h2>
         <pre class="html"><code><div class="text-red">
@@ -223,8 +278,8 @@
       </section>
       <section>
         <h3>Qualified selectors</h3>
-        <pre class="css"><code>/* Meh */
-div ul li a {
+        <p>Meh...</p>
+        <pre class="css"><code>div ul li a {
   font-weight: bold;
   text-decoration: underline;
   color: red;
@@ -239,8 +294,8 @@ div ul li a {
       </section>
       <section>
         <h3>Qualified selectors</h3>
-<pre class="css"><code>/* Beter */
-/* Sensible default */
+        <p>Beter!</p>
+<pre class="css"><code>/* Sensible default */
 a {
   text-decoration: underline;
 }
@@ -253,11 +308,8 @@ a {
       </section>
       <section>
         <h3>Resetten van default properties</h3>
-        <pre class="css"><code>/**
- * Responsive table
- */
-
-/* Meh */
+        <p>Meh...</p>
+        <pre class="css"><code>/* Responsive table */
 td { 
   display: block; 
 }
@@ -276,8 +328,8 @@ td {
       </section>
       <section>
         <h3>Resetten van default properties</h3>
-<pre><code>/* Beter */
-@media screen and ( max-width: 640px ) {
+        <p>Beter!</p>
+<pre><code>@media screen and ( max-width: 640px ) {
   td { 
     display: block; 
   }
@@ -285,8 +337,8 @@ td {
       </section>
       <section>
         <h3>Te hoge specificity</h3>
-        <pre class="css"><code>/* Meh */
-#product-list .product h3 a {
+        <p>Meh...</p>
+        <pre class="css"><code>#product-list .product h3 a {
   font-weight: bold;
   color: red;
 }
@@ -305,8 +357,8 @@ td {
       </section>
       <section>
         <h3>Te hoge specificity</h3>
-<pre><code>/* Beter */
-.title-link {
+        <p>Beter!</p>
+<pre><code>.title-link {
   font-weight: bold;
   color: red;
 }</code></pre>
@@ -321,10 +373,13 @@ td {
       </section>
       <section>
         <h3>Inconsistentie</h3>
+        <p style="text-align: left">Veel onnodige variatie in o.a.:</p>
         <ul>
-          <li>Veel onnodige variantie</li>
-          <li>Tekstgrootte, kleurgebruik, functionaliteit</li>
-          <li>Verwarrend!</li>
+          <li class="fragment" style="font-size: 1.5em; font-family: serif;">Typografie</li>
+          <li class="fragment" style="color:aqua;">Kleurgebruik</li>
+          <li class="fragment" style="margin: .5em 0;"><button style="font-size: inherit;">Functionaliteit</button></li>
+          <li class="fragment" style="margin: 1em 0 .5em 2em">Witruimte</li>
+          <li class="fragment"><b><em>Verwarrend!</em></b></li>
         </ul>
         <aside class="notes">
             <ul>
@@ -337,9 +392,9 @@ td {
       <section>
         <h3>Inconsistentie</h3>
         <ul>
-          <li>Overleg met klant en/of designers</li>
-          <li>Breng variaties en uitzonderingen terug</li>
-          <li>Creëer een systeem van logische keuzes</li>
+          <li class="fragment">Overleg met klant en/of designers</li>
+          <li class="fragment">Breng variaties en uitzonderingen terug</li>
+          <li class="fragment">Creëer een systeem van logische keuzes</li>
         </ul>
         <aside class="notes">
           <ul>
@@ -415,8 +470,8 @@ td {
       </section>
       <section>
         <h3>Zonder ITCSS</h3>
-        <img src="img/itcss-style-jumping.jpg" alt="" style="float: left; height: 300px;">
-        <img src="img/itcss-spec-graph-before.jpg" alt="" style="float: right; height: 300px;">
+        <img src="img/itcss-style-jumping.jpg" alt="" style="display: inline-block; vertical-align: top; margin: 20px; height: 300px;">
+        <img src="img/itcss-spec-graph-before.jpg" alt="" style="display: inline-block; vertical-align: top; margin: 20px; height: 300px;">
         <aside class="notes">
           <ul>
             <li>Zonder ITCSS geen duidelijke volgorde in je stylesheet</li>
@@ -428,8 +483,8 @@ td {
       </section>
       <section>
         <h3>Met ITCSS</h3>
-        <img src="img/itcss-style-ordering.jpg" alt="" style="float: left; height: 300px;">
-        <img src="img/itcss-spec-graph-after.jpg" alt="" style="float: right; height: 300px;">
+        <img src="img/itcss-style-ordering.jpg" alt="" style="display: inline-block; vertical-align: top; margin: 20px; height: 300px;">
+        <img src="img/itcss-spec-graph-after.jpg" alt="" style="display: inline-block; vertical-align: top; margin: 20px; height: 300px;">
         <aside class="notes">
           <ul>
             <li>Met ITCSS betere volgorde obv specificity</li>
@@ -514,7 +569,7 @@ td {
           <li>Verdeelt styling in componenten</li>
           <li class="fragment">Uniforme naamgeving over hele codebase</li>
           <li class="fragment">Relaties tussen elementen af te leiden uit HTML</li>
-          <li class="fragment">Lage specificty</li>
+          <li class="fragment">Lage specificity</li>
         </ul>
         <aside class="notes">
           <ul>
@@ -544,8 +599,8 @@ td {
         <table>
           <tr>
             <td>
-              <pre class="css"><code>/* Meh */
-#sidebar h3 {
+              <p>Meh...</p>
+              <pre class="css"><code>#sidebar h3 {
   font-size: 2em;
   color: #f30;
 }
@@ -557,8 +612,8 @@ td {
 
             </td>
             <td>
-              <pre class="css"><code>/* Beter */
-.sub-heading {
+              <p>Beter!</p>
+              <pre class="css"><code>.sub-heading {
   font-size: 2em;
   color: #f30;
 }</code></pre>
@@ -917,6 +972,16 @@ td {
         </ul>
       </section>
       <section>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=1OKZOV-iLj4">ITCSS — Harry Roberts</a></li>
+          <li><a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">MindBEMding — CSS Wizardry</a></li>
+          <li><a href="https://github.com/stubbornella/oocss">OOCSS — Nicole Sullivan</a></li>
+          <li><a href="https://gist.github.com/rikschennink/e2d11c73443ef7cda413ee4c9e2cb28d">Sass OO Mixins — Rik Schennink</a></li>
+          <li><a href="http://atomicdesign.bradfrost.com/table-of-contents/">Atomic Design — Brad Frost</a></li>
+        </ul>
+      </section>
+      <section>
         <h3>Vragen?</h3>
         <img src="img/vragen.gif" alt="">
       </section>
@@ -931,8 +996,9 @@ td {
     Reveal.initialize({
       slideNumber: true,
       history: true,
+      center: false,
 
-      width: 1240,
+      width: 1440,
       margin: 0.1,
 
       transition: 'fade',
@@ -960,5 +1026,4 @@ td {
     });
   </script>
 </body>
-
 </html>
