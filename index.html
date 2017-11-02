@@ -377,29 +377,43 @@ td {
         <ul>
           <li class="fragment" style="font-size: 1.5em; font-family: serif;">Typografie</li>
           <li class="fragment" style="color:aqua;">Kleurgebruik</li>
-          <li class="fragment" style="margin: .5em 0;"><button style="font-size: inherit;">Functionaliteit</button></li>
+          <li class="fragment" style="margin: .5em 0;"><button style="font-size: inherit; padding: 10px; background: red; border: 0;">Functionaliteit</button></li>
           <li class="fragment" style="margin: 1em 0 .5em 2em">Witruimte</li>
           <li class="fragment"><b><em>Verwarrend!</em></b></li>
         </ul>
         <aside class="notes">
-            <ul>
-              <li>Veel variaties moeten maken van bepaalde patterns</li>
-              <li>Weinig consistentie, verwarrend en complex</li>
-              <li>Voor zowel developer als de bezoeker</li>
-            </ul>
-          </aside>
+          <ul>
+            <li>Veel variaties moeten maken van bepaalde patterns</li>
+            <li>Weinig consistentie, verwarrend en complex</li>
+            <li>Voor zowel developer als de bezoeker</li>
+          </ul>
+        </aside>
       </section>
       <section>
         <h3>Inconsistentie</h3>
         <ul>
-          <li class="fragment">Overleg met klant en/of designers</li>
-          <li class="fragment">Breng variaties en uitzonderingen terug</li>
-          <li class="fragment">Creëer een systeem van logische keuzes</li>
+          <li class="fragment">Breng variaties en uitzonderingen terug
+            <p>
+              <em class="fragment">&ldquo;Is deze variant wel écht nodig?&rdquo;</em>
+            </p>
+          </li>
+          <li class="fragment">Zorg voor voorspelbaar gedrag en toepassing
+            <p>
+              <em class="fragment">&ldquo;Is dit component op alle plekken hetzelfde?&rdquo;</em>
+            </p>
+          </li>
+          <li class="fragment">Creëer een design <b><u>systeem</u></b>
+            <p>
+              <em class="fragment">&ldquo;Valt deze toepassing te herleiden uit een systeem?&rdquo;</em>
+            </p>
+          </li>
         </ul>
         <aside class="notes">
           <ul>
-              <li>Overleg met ontwerp over consistentie en breng de hoeveelheid variaties terug</li>
-              <li>Benoem de variaties en waarom welke variatie in welke context gebruikt moet kunnen worden</li>
+            <li>Overleg met ontwerp over consistentie en breng de hoeveelheid variaties terug</li>
+            <li>Benoem de variaties en waarom welke variatie in welke context gebruikt moet kunnen worden</li>
+            <li>Systemen horen logisch te zijn</li>
+            <li>Logica valt te snappen, voor zowel de bezoeker als developer</li>
           </ul>
         </aside>
       </section>
@@ -834,9 +848,9 @@ td {
       <section>
         <h3>Atoms</h3>
         <ul>
-          <li>Bouwstenen van het design system</li>
+          <li>Bouwstenen van het design systeem</li>
           <li class="fragment">Basis HTML-elementen</li>
-          <li class="fragment">Componenten die niet kleiner kunnen</li>
+          <li class="fragment">Componenten die niet kleiner kunnen worden gemaakt, zonder functionaliteit te verliezen</li>
         </ul>
         <aside class="notes">
           <ul>
@@ -847,7 +861,6 @@ td {
         </aside>
       </section>
       <section>
-        <h3>Atoms</h3>
         <img src="img/atomic-design-atoms.png" alt="Losse formulier elementen">
       </section>
       <section>
@@ -866,7 +879,6 @@ td {
         </aside>
       </section>
       <section>
-        <h3>Molecules</h3>
         <img src="img/atomic-design-molecules.png" alt="Een simpel formulier bestaande uit een paar velden en een verzendknop">
       </section>
       <section>
@@ -884,8 +896,7 @@ td {
         </aside>
       </section>
       <section>
-        <h3>Organisms</h3>
-        <img src="img/atomic-design-organisms.png" alt="Een balk met filteropties voor producten" width="300">
+        <img src="img/atomic-design-organisms.png" alt="Een balk met filteropties voor producten">
       </section>
       <section>
         <h3>Templates</h3>
@@ -902,14 +913,14 @@ td {
         </aside>
       </section>
       <section>
-        <h3>Templates</h3>
-        <img src="img/atomic-design-templates.png" alt="Een screenshot van een webpagina template" width="450">
+        <img src="img/atomic-design-templates.png" alt="Een screenshot van een webpagina template" width="600">
       </section>
       <section>
         <h3>Pages</h3>
         <ul>
           <li>Invulling templates met "echte" content</li>
           <li class="fragment">Checken waar het design wringt</li>
+          <li class="fragment">Wringt het? Terug naar de tekentafel!</li>
           <li class="fragment">Dit is wat de bezoeker te zien krijgt</li>
           <li class="fragment">Meest concreet van het design system</li>
         </ul>
@@ -923,8 +934,7 @@ td {
         </aside>
       </section>
       <section>
-        <h3>Pages</h3>
-        <img src="img/atomic-design-pages.png" alt="Een screenshot van een webpagina" width="450">
+        <img src="img/atomic-design-pages.png" alt="Een screenshot van een webpagina" width="600">
       </section>
       <section>
         <h3>Dit is Atomic Design</h3>
@@ -948,7 +958,7 @@ td {
           <li class="fragment">Aanmoedigen hergebruik</li>
           <li class="fragment">Elimineert uitzonderingen</li>
           <li class="fragment">Testen van afzonderlijke onderdelen</li>
-          <li class="fragment">Helpt bij definiëren van verantwoordelijkheden</li>
+          <li class="fragment">Helpt bij afbakenen van verantwoordelijkheden</li>
         </ul>
       </section>
       <section>
@@ -958,6 +968,15 @@ td {
           <li class="fragment">Langdurend project</li>
           <li class="fragment">Veel doorontwikkeling / onderhoud</li>
           <li class="fragment">Veel verschillende componenten</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Hoe pas ik het toe?</h3>
+        <p>Verschillende tools. Onder andere:</p>
+        <ul>
+          <li class="fragment"><a target="_blank" href="http://patternlab.io">Pattern Lab (PHP, Node)</a></li>
+          <li class="fragment"><a target="_blank" href="https://fractal.build/">Fractal (Node)</a></li>
+          <li class="fragment"><a target="_blank" href="https://storybook.js.org/">Storybook (React)</a></li>
         </ul>
       </section>
       <section>
